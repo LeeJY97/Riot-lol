@@ -1,0 +1,22 @@
+export async function GET(request: Request) {
+  const apiKey = process.env.RIOT_API_KEY;
+
+  const res = await fetch(
+    "https://kr.api.riotgames.com/lol/platform/v3/champion-rotations",
+    {
+      method: "GET",
+      headers: {
+        "X-Riot-Token": apiKey || "",
+        "Content-Type": "application/json",
+      },
+      cache: "no-store",
+    }
+  );
+  if (!res.ok) {
+    throw new Error("로테이션 API 에러");
+  }
+
+  const data = await res.json();
+
+  console.log("data", data);
+}

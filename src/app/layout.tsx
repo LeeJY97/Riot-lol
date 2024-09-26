@@ -30,9 +30,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="flex items-center gap-10 w-full h-14 text-white bg-black ">
-          <Link href="">챔피언</Link>
-          <Link href="">로테이션</Link>
-          <Link href="">아이템</Link>
+          <Link href="/champs">챔피언</Link>
+          <Link href="/rotation">로테이션</Link>
+          <Link href="/items">아이템</Link>
         </div>
         {children}
       </body>
