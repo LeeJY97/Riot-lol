@@ -1,7 +1,15 @@
 type Champ = {
+  type: string;
+  format: string;
+  version: string;
+  data: ChampTable;
+};
+
+type ChampTable = {
   [key: string]: ChampDetail;
 };
-type ChampDetail = {
+
+export type ChampDetail = {
   version: string;
   id: string;
   key: string;

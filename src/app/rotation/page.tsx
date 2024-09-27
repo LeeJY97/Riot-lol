@@ -1,16 +1,21 @@
+import { getChamps } from "@/server-actions/champAction";
 import { getChampDetailWithRotations } from "@/service/rotationService";
+import Champ from "@/types/Champ";
 import React from "react";
 
 const Rotation = async () => {
   // 여기에 cache
-  const res = await fetch(`${process.env.NEXT_BASE_URL}/api/rotation`);
-  const rotationKeys = await res.json();
+  const rotationRes = await fetch(`${process.env.NEXT_BASE_URL}/api/rotation`);
+  const rotationKeys = await rotationRes.json();
 
-  const champList = await getChampDetailWithRotations(rotationKeys);
+  const champsRes = await getChamps();
+  const champs = await champsRes.json();
+
+  const rotationChamps = getChampDetailWithRotations(rotationKeys, champs);
 
   return (
     <div className="grid grid-cols-4">
-      {champList.map((champ) => (
+      {rotationChamps.map((champ) => (
         <span key={champ.id}>{champ.name}</span>
       ))}
     </div>
