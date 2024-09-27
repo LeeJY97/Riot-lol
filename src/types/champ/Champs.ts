@@ -1,5 +1,3 @@
-import { ChampImage, ChampInfo, ChampStats } from "./ChampCommon";
-
 type Champs = {
   type: string;
   format: string;
@@ -12,17 +10,112 @@ export type ChampTable = {
 };
 
 export type Champ = {
-  version: string;
+  version?: string;
   id: string;
   key: string;
   name: string;
   title: string;
   blurb: string;
-  info: ChampInfo;
-  image: ChampImage;
   tags: string[];
   partype: string;
   stats: ChampStats;
+  info: ChampInfo;
+  image: ChampImage;
+};
+
+export type ChampImage = {
+  full: string;
+  sprite: string;
+  group: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+};
+
+export type ChampInfo = {
+  attack: number;
+  defense: number;
+  magic: number;
+  difficulty: number;
+};
+
+export type ChampStats = {
+  hp: number;
+  hpperlevel: number;
+  mp: number;
+  mpperlevel: number;
+  movespeed: number;
+  armor: number;
+  armorperlevel: number;
+  spellblock: number;
+  spellblockperlevel: number;
+  attackrange: number;
+  hpregen: number;
+  hpregenperlevel: number;
+  mpregen: number;
+  mpregenperlevel: number;
+  crit: number;
+  critperlevel: number;
+  attackdamage: number;
+  attackdamageperlevel: number;
+  attackspeedperlevel: number;
+  attackspeed: number;
+};
+
+/** 여기부터 상세 */
+export type ChampExtends = {
+  skins: Skin[];
+  lore: string; // 챔프 배경,
+  spells: Spell[]; // 스킬 [id, name, description, cooldown, cost, costType, range, image, resource(소모값)]
+  passive: Passive; //
+  // recommended?: never[];
+  // allytips: string[];
+  // enemytips: string[];
+};
+
+type Skin = {
+  id: string;
+  num: number;
+  name: string;
+  chromas: boolean;
+};
+
+type Spell = {
+  id: string;
+  name: string;
+  description: string;
+  tooltip: string;
+  maxrank: number;
+  cooldownBurn: string;
+  costBurn: string;
+  costType: string;
+  rangeBurn: string;
+  image: SkillImage;
+  resource: string;
+  // cooldown: number[];
+  // cost: number[];
+  // range: number[];
+  // leveltip: {
+  //   label: string[];
+  //   effect: string[];
+  // };
+};
+
+type SkillImage = {
+  full: string;
+  sprite: string;
+  group: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+};
+
+type Passive = {
+  name: string;
+  description: string;
+  image: SkillImage;
 };
 
 export default Champs;
