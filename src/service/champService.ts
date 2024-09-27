@@ -2,12 +2,13 @@ import { Champ, ChampTable } from "@/types/Champs";
 import Rotation from "@/types/Rotation";
 
 const convertChampsTableToArray = (champTable: ChampTable): Champ[] => {
-  return Object.values(champTable);
+  return Object.values(champTable).sort((a, b) => {
+    return a.name.localeCompare(b.name, "ko");
+  });
 };
 
 const getChampsWithRotations = (rotationKeys: Rotation, champTable: ChampTable): Champ[] => {
-  // 1) champData의 values를 배열로 만들고, rotationKeys에 포함되는 요소만 배열로 반환
-  const rotationChampList = Object.values(champTable).filter((champ) =>
+  const rotationChampList = convertChampsTableToArray(champTable).filter((champ) =>
     rotationKeys.freeChampionIds.includes(+champ.key),
   );
 
