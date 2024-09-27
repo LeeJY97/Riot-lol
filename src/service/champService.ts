@@ -1,6 +1,10 @@
 import { Champ, ChampTable } from "@/types/Champs";
 import Rotation from "@/types/Rotation";
 
+const convertChampsTableToArray = (champTable: ChampTable): Champ[] => {
+  return Object.values(champTable);
+};
+
 const getChampsWithRotations = (rotationKeys: Rotation, champTable: ChampTable): Champ[] => {
   // 1) champData의 values를 배열로 만들고, rotationKeys에 포함되는 요소만 배열로 반환
   const rotationChampList = Object.values(champTable).filter((champ) =>
@@ -10,4 +14,4 @@ const getChampsWithRotations = (rotationKeys: Rotation, champTable: ChampTable):
   return rotationChampList;
 };
 
-export { getChampsWithRotations };
+export { convertChampsTableToArray, getChampsWithRotations };

@@ -3,7 +3,7 @@
 import Champs, { Champ, ChampTable } from "@/types/Champs";
 
 const getChamps = async (): Promise<ChampTable> => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_DDRAGON_BASE_URL}/14.14.1/data/ko_KR/champion.json`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_DDRAGON_BASE_URL}/14.19.1/data/ko_KR/champion.json`, {
     next: {
       revalidate: 86400,
     },
