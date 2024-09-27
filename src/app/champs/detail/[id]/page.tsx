@@ -1,3 +1,5 @@
+import { getChamp } from "@/server-actions/champAction";
+import { Champ, ChampExtends } from "@/types/Champs";
 import React from "react";
 
 type Props = {
@@ -6,14 +8,23 @@ type Props = {
   };
 };
 
+const requestOption: RequestInit = {
+  next: {
+    revalidate: 86400,
+  },
+};
+
 const ChampDetail = async ({ params }: Props) => {
   const { id } = params;
-  const res = await fetch(`${process.env.NEXT_PUBLIC_DDRAGON_BASE_URL}/14.19.1/data/ko_KR/champion/${id}.json`, {
-    next: {
-      revalidate: 86400,
-    },
-  });
-  const data = res.json();
+  const champ: Champ & ChampExtends = await getChamp(id, requestOption);
+  const { skins, tags, stats, info, image, spells, passive } = champ;
+  console.log("🚀 ~ ChampDetail ~ passive:", passive);
+  console.log("🚀 ~ ChampDetail ~ spells:", spells);
+  console.log("🚀 ~ ChampDetail ~ image:", image);
+  console.log("🚀 ~ ChampDetail ~ info:", info);
+  console.log("🚀 ~ ChampDetail ~ stats:", stats);
+  console.log("🚀 ~ ChampDetail ~ tags:", tags);
+  console.log("🚀 ~ ChampDetail ~ skins:", skins);
 
   return <div>{params.id}</div>;
 };
