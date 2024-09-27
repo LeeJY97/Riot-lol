@@ -1,4 +1,6 @@
-export async function GET(request: Request) {
+import Rotation from "@/types/Rotation";
+
+export async function GET(request: Request): Promise<Response> {
   const apiKey = process.env.RIOT_API_KEY;
 
   const res = await fetch(
@@ -17,6 +19,11 @@ export async function GET(request: Request) {
   }
 
   const data = await res.json();
-
   console.log("data", data);
+  return new Response(JSON.stringify(data), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 }
