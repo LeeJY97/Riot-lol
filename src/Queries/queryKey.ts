@@ -3,7 +3,7 @@ const queryKey = {
     rotationKeys: ["rotationKeys"],
   },
   champ: {
-    champsTable: ["champsTable"],
+    champs: ["champs"],
     champ: (id: string) => ["champ", id],
   },
 };

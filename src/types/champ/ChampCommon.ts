@@ -1,36 +1,4 @@
-type Champs = {
-  type: string;
-  format: string;
-  version: string;
-  data: ChampsTable;
-};
-
-export type ChampsTable = {
-  [key: string]: Champ;
-};
-
-export type Champ = {
-  version: string;
-  id: string;
-  key: string;
-  name: string;
-  title: string;
-  blurb: string;
-  info: ChampInfo;
-  image: ChampImage;
-  tags: ChampTags;
-  partype: string;
-  stats: ChampStats;
-};
-
-type ChampInfo = {
-  attack: number;
-  defense: number;
-  magic: number;
-  difficulty: number;
-};
-
-type ChampImage = {
+export type ChampImage = {
   full: string;
   sprite: string;
   group: string;
@@ -40,9 +8,14 @@ type ChampImage = {
   h: number;
 };
 
-type ChampTags = string[];
+export type ChampInfo = {
+  attack: number;
+  defense: number;
+  magic: number;
+  difficulty: number;
+};
 
-type ChampStats = {
+export type ChampStats = {
   hp: number;
   hpperlevel: number;
   mp: number;
@@ -64,5 +37,3 @@ type ChampStats = {
   attackspeedperlevel: number;
   attackspeed: number;
 };
-
-export default Champs;

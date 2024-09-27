@@ -8,7 +8,7 @@ import queryKey from "./queryKey";
 const useGetChamps = () => {
   return useSuspenseQuery({
     // useQuery쓰면 undefined가 나올수밖에 없음
-    queryKey: queryKey.champ.champsTable,
+    queryKey: queryKey.champ.champs,
     queryFn: () => getChamps(),
   });
 };
