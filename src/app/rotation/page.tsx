@@ -4,7 +4,7 @@ import queryKey from "@/Queries/queryKey";
 // import useGetChamps from "@/Queries/useGetRotationKeys";
 import { getChamps } from "@/server-actions/champAction";
 import { getChampsWithRotations } from "@/service/champService";
-import Champ, { ChampTable } from "@/types/champ/Champs";
+import Champ, { ChampTable } from "@/types/Champs";
 import type Rotation from "@/types/Rotation";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import Link from "next/link";

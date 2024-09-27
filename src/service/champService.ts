@@ -1,4 +1,4 @@
-import { Champ, ChampTable } from "@/types/champ/Champs";
+import { Champ, ChampTable } from "@/types/Champs";
 import Rotation from "@/types/Rotation";
 
 const getChampsWithRotations = (rotationKeys: Rotation, champTable: ChampTable): Champ[] => {
