@@ -13,6 +13,7 @@ const getChamps = async (): Promise<ChampTable> => {
   );
 
   const data: Champ = await res.json();
+  console.log("data", data.data);
   return data.data;
 };
 

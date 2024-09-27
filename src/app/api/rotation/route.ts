@@ -15,6 +15,9 @@ export async function GET(request: Request): Promise<Response> {
       cache: "no-store", //이거 빼고 테스트
     }
   );
+
+  console.log("apiKey", apiKey);
+
   if (!res.ok) {
     throw new Error("로테이션 API 에러");
   }
