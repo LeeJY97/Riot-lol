@@ -1,39 +1,15 @@
 "use client";
 
 import queryKey from "@/Queries/queryKey";
-import useGetChamps from "@/Queries/useGetRotationKeys";
-import { getChamps } from "@/server-actions/champAction";
-import Rotation from "@/types/Rotation";
+// import useGetChamps from "@/Queries/useGetRotationKeys";
+// import { getChamps } from "@/server-actions/champAction";
+import { getChampDetailWithRotations } from "@/service/champService";
+import Champ, { ChampTable } from "@/types/Champ";
+import type Rotation from "@/types/Rotation";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
-
-const initialRotationKeys: Rotation = {
-  freeChampionIds: [],
-  freeChampionIdsForNewPlayers: [],
-  maxNewPlayerLevel: 0,
-};
 
 const Rotation = () => {
-  const [rotationPending, setRotationPending] = useState<boolean>(true);
-  // const [rotationKeys, setRotationKeys] =
-  //   useState<Rotation>(initialRotationKeys);
-
-  // useEffect(() => {
-  //   const fetchRotationKeys = async () => {
-  //     const rotationRes = await fetch(`/api/rotation`, {
-  //       cache: "no-cache",
-  //     });
-  //     const rotationKeys = await rotationRes.json();
-
-  //     console.log("ratationKeys", rotationKeys);
-
-  //     setRotationKeys(rotationKeys);
-  //     setRotationPending(false);
-  //   };
-  //   fetchRotationKeys();
-  // }, []);
-
-  const { data: rotationKeys } = useSuspenseQuery({
+  const { data: rotationKeys } = useSuspenseQuery<Rotation>({
     queryKey: queryKey.rotation.rotationKeys,
     queryFn: async () => {
       const rotationRes = await fetch(
@@ -44,28 +20,33 @@ const Rotation = () => {
     },
   });
 
-  const { data: champTable } = useSuspenseQuery({
-    // useQuery쓰면 undefined가 나올수밖에 없음
+  const { data: champTable } = useSuspenseQuery<ChampTable>({
     queryKey: queryKey.champ.champTable,
-    queryFn: () => getChamps(),
+    // queryFn: () => getChamps(), // d
+    queryFn: async () => {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_DDRAGON_BASE_URL}/14.14.1/data/ko_KR/champion.json`,
+        {
+          next: {
+            revalidate: 86400,
+          },
+        }
+      );
+
+      const data: Champ = await res.json();
+      return data.data;
+    },
   });
 
-  // const { data: champTable } = useGetChamps();
+  const rotationChamps = getChampDetailWithRotations(rotationKeys, champTable);
 
-  console.log("rotationKeys", rotationKeys);
-  console.log("champTable", champTable);
-  // if (rotationPending) {
-  //   return <>. . . 로딩 </>;
-  // }
-
-  // const champs: ChampTable = await champsRes.json();
-
-  // const rotationChamps = getChampDetailWithRotations(rotationKeys, champTable);
-  // {rotationChamps.map((champ) => (
-  //   <span key={champ.id}>{champ.name}</span>
-  // ))}
-
-  return <div className="grid grid-cols-4"></div>;
+  return (
+    <div className="grid grid-cols-4">
+      {rotationChamps.map((champ) => (
+        <span key={champ.id}>{champ.name}</span>
+      ))}
+    </div>
+  );
 };
 
 export default Rotation;

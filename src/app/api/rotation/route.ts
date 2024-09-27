@@ -16,15 +16,11 @@ export async function GET(request: Request): Promise<Response> {
     }
   );
 
-  console.log("apiKey", apiKey);
-
   if (!res.ok) {
     throw new Error("로테이션 API 에러");
   }
 
   const data = await res.json();
-
-  console.log("data", data);
 
   return new Response(JSON.stringify(data), {
     status: 200,
