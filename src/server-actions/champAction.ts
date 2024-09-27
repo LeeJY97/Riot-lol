@@ -1,8 +1,8 @@
 "use server";
 
-import Champ, { ChampDetail, ChampTable } from "@/types/Champ";
+import Champs, { Champ, ChampsTable } from "@/types/Champs";
 
-const getChamps = async (): Promise<ChampTable> => {
+const getChamps = async (): Promise<ChampsTable> => {
   const res = await fetch(
     `${process.env.DDRAGON_BASE_URL}/14.14.1/data/ko_KR/champion.json`,
     {
@@ -12,16 +12,16 @@ const getChamps = async (): Promise<ChampTable> => {
     }
   );
 
-  const data: Champ = await res.json();
+  const data: Champs = await res.json();
   return data.data;
 };
 
-const getChamp = async (id: string): Promise<ChampDetail> => {
+const getChamp = async (id: string): Promise<Champ> => {
   const res = await fetch(
     `${process.env.DDRAGON_BASE_URL}/14.19.1/data/ko_KR/champion/${id}.json`
   );
 
-  const data: ChampDetail = await res.json();
+  const data: Champ = await res.json();
   return data;
 };
 

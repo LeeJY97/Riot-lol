@@ -3,8 +3,8 @@
 import queryKey from "@/Queries/queryKey";
 // import useGetChamps from "@/Queries/useGetRotationKeys";
 // import { getChamps } from "@/server-actions/champAction";
-import { getChampDetailWithRotations } from "@/service/champService";
-import Champ, { ChampTable } from "@/types/Champ";
+import { getChampsWithRotations } from "@/service/champService";
+import Champ, { ChampsTable } from "@/types/Champs";
 import type Rotation from "@/types/Rotation";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import Link from "next/link";
@@ -21,8 +21,8 @@ const Rotation = () => {
     },
   });
 
-  const { data: champTable } = useSuspenseQuery<ChampTable>({
-    queryKey: queryKey.champ.champTable,
+  const { data: champsTable } = useSuspenseQuery<ChampsTable>({
+    queryKey: queryKey.champ.champsTable,
     // queryFn: () => getChamps(), // d
     queryFn: async () => {
       const res = await fetch(
@@ -39,7 +39,7 @@ const Rotation = () => {
     },
   });
 
-  const rotationChamps = getChampDetailWithRotations(rotationKeys, champTable);
+  const rotationChamps = getChampsWithRotations(rotationKeys, champsTable);
 
   return (
     <div className="grid grid-cols-4">

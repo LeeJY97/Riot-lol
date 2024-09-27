@@ -17,6 +17,12 @@
     "mpregenperlevel",
     "partype",
     "spellblock",
-    "spellblockperlevel"
+    "spellblockperlevel",
+    "leveltip",
+    "maxrank",
+    "cooldown",
+    "cooldownBurn",
+    "allytips",
+    "enemytips"
   ]
 }

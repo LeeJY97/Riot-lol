@@ -1,15 +1,15 @@
-type Champ = {
+type Champs = {
   type: string;
   format: string;
   version: string;
-  data: ChampTable;
+  data: ChampsTable;
 };
 
-export type ChampTable = {
-  [key: string]: ChampDetail;
+export type ChampsTable = {
+  [key: string]: Champ;
 };
 
-export type ChampDetail = {
+export type Champ = {
   version: string;
   id: string;
   key: string;
@@ -65,4 +65,4 @@ type ChampStats = {
   attackspeed: number;
 };
 
-export default Champ;
+export default Champs;

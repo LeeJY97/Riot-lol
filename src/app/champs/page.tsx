@@ -1,7 +1,7 @@
 import React from "react";
 
 const Champs = () => {
-  return <div>Champs</div>;
+  return <div>page</div>;
 };
 
 export default Champs;
