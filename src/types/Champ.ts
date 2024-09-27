@@ -5,7 +5,7 @@ type Champ = {
   data: ChampTable;
 };
 
-type ChampTable = {
+export type ChampTable = {
   [key: string]: ChampDetail;
 };
 

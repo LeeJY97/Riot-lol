@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
+import Providers from "@/components/providers/RQProvider";
+import { Suspense } from "react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,7 +36,9 @@ export default function RootLayout({
           <Link href="/rotation">로테이션</Link>
           <Link href="/items">아이템</Link>
         </div>
-        {children}
+        <Suspense fallback={<>... 로딩</>}>
+          <Providers>{children}</Providers>
+        </Suspense>
       </body>
     </html>
   );
