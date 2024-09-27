@@ -1,5 +1,6 @@
 import Rotation from "@/types/Rotation";
 
+// be 역할을 하기 위해 있음
 export async function GET(request: Request): Promise<Response> {
   const apiKey = process.env.RIOT_API_KEY;
 
@@ -11,7 +12,7 @@ export async function GET(request: Request): Promise<Response> {
         "X-Riot-Token": apiKey || "",
         "Content-Type": "application/json",
       },
-      cache: "no-store",
+      cache: "no-store", //이거 빼고 테스트
     }
   );
   if (!res.ok) {

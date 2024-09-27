@@ -4,6 +4,7 @@ import Rotation from "@/types/Rotation";
 const getChampDetailWithRotations = async (rotationKeys: Rotation) => {
   console.log("rotationKeys", rotationKeys);
 
+  // 여기에 fetch 넣으면 종속되서 별로임, 그냥 champ data 매개변수로 받기
   const res = await fetch(
     `${process.env.DDRAGON_BASE_URL}/14.14.1/data/ko_KR/champion.json`
   );
@@ -21,8 +22,6 @@ const getChampDetailWithRotations = async (rotationKeys: Rotation) => {
   return rotationChampList;
 };
 
-const rotationService = {
-  getChampDetailWithRotations,
-};
+export { getChampDetailWithRotations };
 
-export default rotationService;
+// export default rotationService;
