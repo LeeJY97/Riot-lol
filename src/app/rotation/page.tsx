@@ -1,9 +1,13 @@
 "use client";
 
+import queryKey from "@/Queries/queryKey";
 import useGetChamps from "@/Queries/useGetRotationKeys";
+import { getChamps } from "@/server-actions/champAction";
 import { getChampDetailWithRotations } from "@/service/champService";
+import { ChampTable } from "@/types/Champ";
 import type Rotation from "@/types/Rotation";
-import React, { Suspense, useEffect, useState } from "react";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import React, { useEffect, useState } from "react";
 
 const initialRotationKeys: Rotation = {
   freeChampionIds: [],
@@ -32,13 +36,23 @@ const Rotation = () => {
     };
     fetchRotationKeys();
   }, []);
+  // const { data: rotationKeys } = useSuspenseQuery({
+  //   queryKey: queryKey.rotation.rotationKeys,
+  //   queryFn: async () => {
+  //     const rotationRes = await fetch(
+  //       // `${process.env.NEXT_BASE_URL}/api/rotation`
+  //       `/api/rotation`
+  //     );
+  //     const rotationKeys = await rotationRes.json();
+  //     return rotationKeys;
+  //   },
+  // });
 
-  // suspense는 데이터가 요청이 끝날 떄까지 기다린다 => undefined가 나오지 않음
   const { data: champTable } = useGetChamps();
 
-  // if (rotationPending || champTablePending) {
-  //   return <>. . . 로딩 </>;
-  // }
+  if (rotationPending) {
+    return <>. . . 로딩 </>;
+  }
 
   // const champs: ChampTable = await champsRes.json();
 
