@@ -1,9 +1,8 @@
 import { getChamp } from "@/server-actions/champAction";
-import { Champ, ChampExtends, Skin } from "@/types/Champs";
+import { Champ, ChampExtends } from "@/types/Champs";
+import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
-import ImageTest from "./ImageTest";
-import favicon from "@/app/favicon.ico";
 
 type Props = {
   params: {
@@ -16,6 +15,15 @@ const requestOption: RequestInit = {
     revalidate: 86400,
   },
 };
+
+export function generateMetadata({ params }: Props): Metadata {
+  // 경로 매개변수 읽기
+  const id = params.id;
+
+  return {
+    title: id,
+  };
+}
 
 const ChampDetail = async ({ params }: Props) => {
   const { id } = params;
