@@ -26,6 +26,8 @@ const Rotation = () => {
     staleTime: 0,
   });
 
+  // ChampImage이 url 삽입
+
   const rotationChamps = getChampsWithRotations(rotationKeys, ChampTable);
 
   return (

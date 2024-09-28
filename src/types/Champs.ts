@@ -21,6 +21,7 @@ export type Champ = {
   stats: ChampStats;
   info: ChampInfo;
   image: ChampImage;
+  customImage?: ChampCustomImage;
 };
 
 export type ChampImage = {
@@ -31,6 +32,12 @@ export type ChampImage = {
   y: number;
   w: number;
   h: number;
+};
+
+export type ChampCustomImage = {
+  defaultImage?: string;
+  skins?: Skin[];
+  loadingImage?: string;
 };
 
 export type ChampInfo = {
