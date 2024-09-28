@@ -74,7 +74,7 @@ export type ChampExtends = {
   // enemytips: string[];
 };
 
-type Skin = {
+export type Skin = {
   id: string;
   num: number;
   name: string;

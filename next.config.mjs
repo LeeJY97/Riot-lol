@@ -7,10 +7,15 @@ const nextConfig = {
     }
   },
   images: {
-    // remotePatterns: [
-    //   {
-    //   },
-    // ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ddragon.leagueoflegends.com',
+        port: '',
+        pathname: '/cdn/**'
+      }
+    ],
+
     formats: ['image/avif', "image/webp"],
   }
 };

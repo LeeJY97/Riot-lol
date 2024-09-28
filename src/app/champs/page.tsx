@@ -7,8 +7,6 @@ const Champs = async () => {
   const data = await getChamps();
   const champs = convertChampsTableToArray(data);
 
-  console.log("champs", champs);
-
   return (
     <div className="grid grid-cols-4">
       {champs.map((champ) => (

@@ -1,28 +1,29 @@
 {
   "cSpell.words": [
+    "allytips",
     "armorperlevel",
     "attackdamage",
     "attackdamageperlevel",
     "attackrange",
     "attackspeed",
     "attackspeedperlevel",
+    "cooldown",
+    "cooldownBurn",
     "critperlevel",
     "DDRAGON",
+    "enemytips",
     "hpperlevel",
     "hpregen",
     "hpregenperlevel",
+    "leagueoflegends",
+    "leveltip",
+    "maxrank",
     "movespeed",
     "mpperlevel",
     "mpregen",
     "mpregenperlevel",
     "partype",
     "spellblock",
-    "spellblockperlevel",
-    "leveltip",
-    "maxrank",
-    "cooldown",
-    "cooldownBurn",
-    "allytips",
-    "enemytips"
+    "spellblockperlevel"
   ]
 }
