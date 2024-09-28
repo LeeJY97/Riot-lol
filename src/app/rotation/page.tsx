@@ -1,13 +1,12 @@
 "use client";
 
+import ChampGrid from "@/components/ChampGrid";
 import queryKey from "@/Queries/queryKey";
-// import useGetChamps from "@/Queries/useGetRotationKeys";
 import { getChamps } from "@/server-actions/champAction";
-import { getChampsWithRotations } from "@/service/champService";
-import Champ, { ChampTable } from "@/types/Champs";
+import { getChampsExtendCustomImage, getChampsWithRotations } from "@/service/champService";
+import { ChampTable } from "@/types/Champs";
 import type Rotation from "@/types/Rotation";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import Link from "next/link";
 
 const Rotation = () => {
   const { data: rotationKeys } = useSuspenseQuery<Rotation>({
@@ -26,21 +25,10 @@ const Rotation = () => {
     staleTime: 0,
   });
 
-  // ChampImage이 url 삽입
-
   const rotationChamps = getChampsWithRotations(rotationKeys, ChampTable);
+  const champsExtendCustomImage = getChampsExtendCustomImage(rotationChamps);
 
-  return (
-    <div className="grid grid-cols-4">
-      {rotationChamps.map((champ) => (
-        <div key={champ.id}>
-          <Link href={`/champs/detail/${champ.id}`}>
-            <span>{champ.name}</span>
-          </Link>
-        </div>
-      ))}
-    </div>
-  );
+  return <ChampGrid champs={champsExtendCustomImage} />;
 };
 
 export default Rotation;
