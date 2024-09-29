@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  /* font-family: Arial, Helvetica, sans-serif; */
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -75,4 +71,21 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+html,
+body {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  cursor: url("../public/assets/images/cursor_default.png") 1 1, auto;
+}
+
+footer {
+  cursor: url("../public/assets/images/cursor_default.png") 1 1, auto;
+}
+
+a {
+  cursor: url("../public/assets/images/cursor_hover.png"), auto; /* hover 시 커서 */
+}
+.hover-element {
+  cursor: url("../public/assets/images/cursor_hover.png"), auto; /* hover 시 커서 */
 }
