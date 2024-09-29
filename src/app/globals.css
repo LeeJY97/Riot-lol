@@ -84,7 +84,7 @@ footer {
 }
 
 a {
-  cursor: url("../public/assets/images/cursor_hover.png"), auto; /* hover 시 커서 */
+  cursor: url("../public/assets/images/cursor_hover.png"), auto !important; /* hover 시 커서 */
 }
 .hover-element {
   cursor: url("../public/assets/images/cursor_hover.png"), auto; /* hover 시 커서 */

@@ -5,7 +5,10 @@ import React from "react";
 import SkinSwiper from "./SkinSwiper";
 import tagMap from "@/utils/champTagMap";
 import { skillInfo } from "./skillInfo";
-import SkillCard from "./SkillCard";
+import version from "@/utils/constant";
+import SkinSection from "./SkinSection";
+import SkillSection from "./SkillSection";
+import InfoSection from "./InfoSection";
 
 type Props = {
   params: {
@@ -31,11 +34,12 @@ export function generateMetadata({ params }: Props): Metadata {
 const ChampDetail = async ({ params }: Props) => {
   const { id } = params;
   const champ: Champ & ChampExtends = await getChamp(id, requestOption);
-  const { skins, tags, stats, info, image, spells, passive } = champ;
+  const { title, name, lore, skins, tags, stats, image, spells, passive } = champ;
 
-  const skinImageUrl = skins.map(
-    (skin) => `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skin.num}.jpg`,
-  );
+  const skinsInfo = skins.map((skin) => ({
+    name: skin.name,
+    url: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skin.num}.jpg`,
+  }));
 
   const activeInfo = spells.map((spell, idx) => {
     const { id, name, cooldownBurn, description, costBurn, costType, rangeBurn, image } = spell;
@@ -55,7 +59,7 @@ const ChampDetail = async ({ params }: Props) => {
       costBurn,
       costType,
       rangeBurn,
-      url: `https://ddragon.leagueoflegends.com/cdn/14.19.1/img/spell/${image.full}`,
+      url: `https://ddragon.leagueoflegends.com/cdn/${version}/img/spell/${image.full}`,
     };
   });
 
@@ -64,7 +68,7 @@ const ChampDetail = async ({ params }: Props) => {
     keyboard: "P",
     name: passive.name,
     description: passive.description,
-    url: `https://ddragon.leagueoflegends.com/cdn/14.19.1/img/passive/${passive.image.full}`,
+    url: `https://ddragon.leagueoflegends.com/cdn/${version}/img/passive/${passive.image.full}`,
   };
 
   const skillsInfo: skillInfo[] = [passiveInfo, ...activeInfo];
@@ -72,39 +76,25 @@ const ChampDetail = async ({ params }: Props) => {
   // console.log("스펠", spells);
   // const spellImageUrl = spells.map((spell) => console.log("스펠", spell.image));
 
+  const info = {
+    imageUrl: skinsInfo[0].url,
+    title,
+    name,
+    lore,
+    tags,
+  };
+
   return (
     <div className="flex flex-col max-w-[1920px] gap-10 mx-auto">
-      <section className="w-[100%] relative">
-        <div className="flex justify-center">
-          <div className="w-[100%] min-w-[1200px] max-w-[1920px] opacity-50 ">
-            <img src={skinImageUrl[0]} alt="" className="w-[100%] object-cover" />
-          </div>
-        </div>
-        <div className="absolute top-1/3 w-[40%] min-w-[500px] max-w-[900px] p-4">
-          <h1 className="text-4xl font-bold text-[#C8AA6E]">{champ.title}</h1>
-          <div className="flex">
-            <h1 className="text-8xl">{champ.name}</h1>
-            <span className="text-2xl">{`(${tags.map((tag) => tagMap[tag]).join("/")})`}</span>
-          </div>
-          <span className="text-lg">{champ.lore}</span>
-        </div>
-      </section>
-      <section className="w-[100%] min-w-[1200px]">
-        {/* <h1 className="text-2xl">스킬 정보</h1> */}
-        <div className="flex justify-between gap-4">
-          {skillsInfo.map((skillInfo) => (
-            <SkillCard skillInfo={skillInfo} />
-          ))}
-        </div>
-      </section>
-      <section className="max-w-[1440px]">
-        <div className="flex flex-col">
-          <h1 className="text-2xl">스킨 목록</h1>
-          <div>
-            <SkinSwiper skins={skinImageUrl} />
-          </div>
-        </div>
-      </section>
+      <div className="w-[100%]">
+        <InfoSection {...info} />
+      </div>
+      <div className="max-w-[1200px] min-w-[1200px] mx-auto">
+        <SkillSection skills={skillsInfo} />
+      </div>
+      <div className="max-w-[1200px] mx-auto">
+        <SkinSection skins={skinsInfo} />
+      </div>
     </div>
   );
 };

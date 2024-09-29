@@ -8,17 +8,21 @@ import "swiper/css/pagination"; // pagination 스타일 추가
 import "swiper/css/navigation";
 import "./swiper.css";
 
+import React from "react";
+
 type Props = {
-  skins: string[];
+  slidesPerView?: number;
+  children: React.JSX.Element[];
+  // children: any;
 };
 
-const SkinSwiper = ({ skins }: Props) => {
+const CustomSwiper = ({ children, slidesPerView = 1 }: Props) => {
   return (
     <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, Autoplay]}
       spaceBetween={0}
-      slidesPerView={4}
+      slidesPerView={slidesPerView}
       navigation
       centeredSlides
       loop={true}
@@ -28,24 +32,11 @@ const SkinSwiper = ({ skins }: Props) => {
       }}
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log("slide change")}>
-      {skins.map((url) => (
-        <SwiperSlide key={url}>
-          <img src={url} alt="" />
-        </SwiperSlide>
-      ))}
+      onSwiper={(swiper) => {}}
+      onSlideChange={() => {}}>
+      {children}
     </Swiper>
-    // <Swiper
-    //   spaceBetween={50}
-    //   slidesPerView={3}
-    //   onSlideChange={() => console.log("slide change")}
-    //   onSwiper={(swiper) => console.log(swiper)}>
-    //   {skins.map((url) => (
-    //     <SwiperSlide key={url}>1</SwiperSlide>
-    //   ))}
-    // </Swiper>
   );
 };
 
-export default SkinSwiper;
+export default CustomSwiper;
