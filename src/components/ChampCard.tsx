@@ -9,7 +9,7 @@ const ChampCard = ({ champ }: { champ: Champ }) => {
         <img src={`${champ.customImage?.loadingImage}`} alt="" />
         <div className="absolute bottom-0 w-[100%] h-[30px] bg-black opacity-75"></div>
         <div className="absolute bottom-0 h-[30px] flex items-center">
-          <span>{champ.name}</span>
+          <span className="text-sm">{champ.name}</span>
         </div>
       </div>
     </Link>

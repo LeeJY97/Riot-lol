@@ -1,8 +1,9 @@
 import { getChamp } from "@/server-actions/champAction";
 import { Champ, ChampExtends } from "@/types/Champs";
 import { Metadata } from "next";
-import Image from "next/image";
 import React from "react";
+import SkinSwiper from "./SkinSwiper";
+import tagMap from "@/utils/champTagMap";
 
 type Props = {
   params: {
@@ -34,31 +35,80 @@ const ChampDetail = async ({ params }: Props) => {
     (skin) => `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skin.num}.jpg`,
   );
 
-  console.log("skinImageUrl", skinImageUrl);
+  const skillInfoList = spells.map((spell, idx) => {
+    const { id, name, cooldownBurn, description, costBurn, costType, rangeBurn, image } = spell;
+    const keyMap = {
+      0: "Q",
+      1: "W",
+      2: "E",
+      3: "R",
+    };
 
-  // <div classname='slide'> // position: relative
-  //   <ul>
-  //     <li></li>
-  //     <li></li>
-  //     <li></li>
-  //   </ul>
-  //   <div className=""> // position: absolute; z-index:1
-  //     <h1>가렌</h1>
-  //     <span>어쩌구 저쩌구 ...</span>
-  //   </div>
-  // </div>
+    return {
+      id,
+      keyboard: keyMap[idx],
+      name,
+      description,
+      cooldownBurn,
+      costBurn,
+      costType,
+      rangeBurn,
+      url: `https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/${image.full}`,
+    };
+  });
+
+  const passiveInfo = {
+    keyboard: "P",
+    description: passive.description,
+    url: `https://ddragon.leagueoflegends.com/cdn/14.19.1/img/passive/${passive.image.full}`,
+  };
+
+  // console.log("스펠", spells);
+  // const spellImageUrl = spells.map((spell) => console.log("스펠", spell.image));
 
   return (
-    <div className="flex flex-col">
-      {skinImageUrl.map((url) => (
-        // <ImageTest key={url} url={url}></ImageTest>
-        <div
-          key={url}
-          className="test flex justify-center items-center w-[100%] max-w-[1920px] h-[850px] mx-auto relative">
-          <Image src={url} layout={"fill"} alt={""} />
+    <div className="flex flex-col max-w-[1920px] gap-10">
+      <section className="w-[100%] relative">
+        <div className="w-[100%] min-w-[1200px] max-w-[1920px] opacity-50">
+          <img src={skinImageUrl[0]} alt="" className="w-[100%] object-cover" />
         </div>
-        // <div key={url} className="flex justify-center items-center w-[100%] max-w-[1920px] mx-auto">
-      ))}
+        <div className="absolute top-1/3 w-[40%] min-w-[500px] max-w-[900px] p-4">
+          <h1 className="text-4xl font-bold text-[#C8AA6E]">{champ.title}</h1>
+          <div className="flex">
+            <h1 className="text-8xl">{champ.name}</h1>
+            <span className="text-2xl">{`(${tags.map((tag) => tagMap[tag]).join("/")})`}</span>
+          </div>
+          <span className="text-lg">{champ.lore}</span>
+        </div>
+      </section>
+      <section>
+        {/* <h1 className="text-2xl">스킬 정보</h1> */}
+        <div className="flex justify-center gap-4">
+          <div className="w-[200px] border-[#7F602A] border-2">
+            <div className="flex gap-2">
+              <img src={passiveInfo.url} alt="" />
+              <span>{passiveInfo.keyboard}</span>
+            </div>
+          </div>
+          {skillInfoList.map((skillInfo) => (
+            <div key={skillInfo.url} className="w-[200px] border-[#7F602A] border-2">
+              <div className="flex gap-2">
+                <img src={skillInfo.url} alt="" />
+                <span>{skillInfo.keyboard}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        {skillInfoList.map((skillInfo) => skillInfo.name)}
+      </section>
+      <section className="max-w-[1440px]">
+        <div className="flex flex-col">
+          <h1 className="text-2xl">스킨 목록</h1>
+          <div>
+            <SkinSwiper skins={skinImageUrl} />
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

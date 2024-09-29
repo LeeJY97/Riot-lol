@@ -34,7 +34,7 @@ export default function RootLayout({
         </div>
         <Suspense fallback={<>... 로딩</>}>
           <Providers>
-            <div className="w-[100%] max-w-[1200px] mx-auto">{children}</div>
+            <div className="w-[100%]">{children}</div>
           </Providers>
         </Suspense>
         <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
@@ -43,7 +43,13 @@ export default function RootLayout({
             href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer">
-            <Image aria-hidden src="https://nextjs.org/icons/file.svg" alt="File icon" width={16} height={16} />
+            <Image
+              aria-hidden
+              src="https://nextjs.org/icons/file.svg"
+              alt="File icon"
+              width={16}
+              height={16}
+            />
             Blog
           </a>
           <a
@@ -51,7 +57,13 @@ export default function RootLayout({
             href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer">
-            <Image aria-hidden src="https://nextjs.org/icons/window.svg" alt="Window icon" width={16} height={16} />
+            <Image
+              aria-hidden
+              src="https://nextjs.org/icons/window.svg"
+              alt="Window icon"
+              width={16}
+              height={16}
+            />
             GitHub
           </a>
           <a
@@ -59,7 +71,13 @@ export default function RootLayout({
             href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer">
-            <Image aria-hidden src="https://nextjs.org/icons/globe.svg" alt="Globe icon" width={16} height={16} />
+            <Image
+              aria-hidden
+              src="https://nextjs.org/icons/globe.svg"
+              alt="Globe icon"
+              width={16}
+              height={16}
+            />
             Go to nextjs.org →
           </a>
         </footer>

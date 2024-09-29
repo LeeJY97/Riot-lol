@@ -28,7 +28,11 @@ const Rotation = () => {
   const rotationChamps = getChampsWithRotations(rotationKeys, ChampTable);
   const champsExtendCustomImage = getChampsExtendCustomImage(rotationChamps);
 
-  return <ChampGrid champs={champsExtendCustomImage} />;
+  return (
+    <div className="max-w-[1200px] mx-auto p-4">
+      <ChampGrid champs={champsExtendCustomImage} />;
+    </div>
+  );
 };
 
 export default Rotation;

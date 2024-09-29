@@ -1,0 +1,29 @@
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: #fff;
+  opacity: 0.5;
+  padding: 15px 5px;
+  border-radius: 20px;
+  color: black !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+}
+
+/* .swiper-pagination-bullet {
+  background: black !important;
+  border: 20px solid black;
+} */
+
+.swiper-pagination-bullet {
+  width: 18px;
+  height: 18px;
+  border: 2px solid white;
+  display: inline-block;
+  border-radius: 50%;
+  background: black;
+  /* opacity: 0.1; */
+}
