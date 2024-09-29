@@ -55,7 +55,7 @@ const ChampDetail = async ({ params }: Props) => {
       costBurn,
       costType,
       rangeBurn,
-      url: `https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/${image.full}`,
+      url: `https://ddragon.leagueoflegends.com/cdn/14.19.1/img/spell/${image.full}`,
     };
   });
 
