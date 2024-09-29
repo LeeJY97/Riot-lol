@@ -51,10 +51,10 @@ const ChampDetail = async ({ params }: Props) => {
       keyboard: keyMap[idx],
       name,
       description,
-      // cooldownBurn,
-      // costBurn,
-      // costType,
-      // rangeBurn,
+      cooldownBurn,
+      costBurn,
+      costType,
+      rangeBurn,
       url: `https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/${image.full}`,
     };
   });

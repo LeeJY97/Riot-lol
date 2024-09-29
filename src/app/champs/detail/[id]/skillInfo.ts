@@ -4,6 +4,10 @@ export type skillInfo = {
   name: string;
   description: string;
   url: string;
+  cooldownBurn?: string;
+  costBurn?: string;
+  costType?: string;
+  rangeBurn?: string;
 };
 
 // export type skillInfo = {
