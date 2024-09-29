@@ -9,6 +9,7 @@ import version from "@/utils/constant";
 import SkinSection from "./SkinSection";
 import SkillSection from "./SkillSection";
 import InfoSection from "./InfoSection";
+import { getDetailPageInfos } from "@/service/champService";
 
 type Props = {
   params: {
@@ -16,14 +17,7 @@ type Props = {
   };
 };
 
-const requestOption: RequestInit = {
-  next: {
-    revalidate: 86400,
-  },
-};
-
 export function generateMetadata({ params }: Props): Metadata {
-  // 경로 매개변수 읽기
   const id = params.id;
 
   return {
@@ -31,58 +25,15 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
+const requestOption: RequestInit = {
+  next: {
+    revalidate: 86400,
+  },
+};
+
 const ChampDetail = async ({ params }: Props) => {
-  const { id } = params;
-  const champ: Champ & ChampExtends = await getChamp(id, requestOption);
-  const { title, name, lore, skins, tags, stats, image, spells, passive } = champ;
-
-  const skinsInfo = skins.map((skin) => ({
-    name: skin.name,
-    url: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skin.num}.jpg`,
-  }));
-
-  const activeInfo = spells.map((spell, idx) => {
-    const { id, name, cooldownBurn, description, costBurn, costType, rangeBurn, image } = spell;
-    const keyMap = {
-      0: "Q",
-      1: "W",
-      2: "E",
-      3: "R",
-    };
-
-    return {
-      id,
-      keyboard: keyMap[idx],
-      name,
-      description,
-      cooldownBurn,
-      costBurn,
-      costType,
-      rangeBurn,
-      url: `https://ddragon.leagueoflegends.com/cdn/${version}/img/spell/${image.full}`,
-    };
-  });
-
-  const passiveInfo = {
-    id: "P",
-    keyboard: "P",
-    name: passive.name,
-    description: passive.description,
-    url: `https://ddragon.leagueoflegends.com/cdn/${version}/img/passive/${passive.image.full}`,
-  };
-
-  const skillsInfo: skillInfo[] = [passiveInfo, ...activeInfo];
-
-  // console.log("스펠", spells);
-  // const spellImageUrl = spells.map((spell) => console.log("스펠", spell.image));
-
-  const info = {
-    imageUrl: skinsInfo[0].url,
-    title,
-    name,
-    lore,
-    tags,
-  };
+  const champ: Champ & ChampExtends = await getChamp(params.id, requestOption);
+  const { info, skillsInfo, skinsInfo } = getDetailPageInfos(champ);
 
   return (
     <div className="flex flex-col max-w-[1920px] gap-10 mx-auto">

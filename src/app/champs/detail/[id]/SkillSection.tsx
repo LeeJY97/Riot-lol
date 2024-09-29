@@ -9,7 +9,7 @@ const SkillSection = ({ skills }: Props) => {
   return (
     <div className="flex justify-between w-[100%]">
       {skills.map((skill) => (
-        <div className="w-[18%] border-[#7F602A] border-2 p-4">
+        <div key={skill.id} className="w-[18%] border-[#7F602A] border-2 p-4">
           <div className="flex flex-col gap-4 h-[100%]">
             <div className="flex gap-2">
               <img src={skill.url} alt="" />
