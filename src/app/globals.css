@@ -76,7 +76,12 @@
 html,
 body {
   /* font-family: Arial, Helvetica, sans-serif; */
+  position: relative;
   cursor: url("../public/assets/images/cursor_default.png") 1 1, auto;
+}
+
+* {
+  cursor: url("../public/assets/images/cursor_default.png") 1 1, auto !important;
 }
 
 footer {
