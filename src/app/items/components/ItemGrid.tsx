@@ -1,19 +1,17 @@
-import { Item, ItemTable } from "@/types/Item";
+import { Item, ItemCustomExtend } from "@/types/Item";
 import React from "react";
+import ItemCard from "./ItemCard";
 
 type Props = {
-  itemTables: ItemTable[];
+  items: (Item & ItemCustomExtend)[];
 };
 
-const ItemGrid = ({ itemTables }: Props) => {
-  console.log("itemTables", itemTables);
-
+const ItemGrid = ({ items }: Props) => {
   return (
     <div>
-      11
-      {/* {itemTables.map((itemTable,idx) => (
-        <div key={}>dd</div>
-      ))} */}
+      {items.map((item) => (
+        <ItemCard key={item.id} item={item} />
+      ))}
     </div>
   );
 };

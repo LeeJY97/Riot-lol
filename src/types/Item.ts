@@ -11,7 +11,7 @@ export type Item = {
   into: string[]; // 상위템 아이디 배열
   image: ItemImage;
   gold: ItemGold;
-  tags: string; // 아이템 카테고리 ? ["Boots"]
+  tags: string[]; // 아이템 카테고리 ? ["Boots"]
   maps: { [key: string]: boolean };
   stacks: number; // 몇개까지 들고 있을 수 있는지
   consumed: boolean; // 소모성 - 이 속성 있으면 목록에서 제외
@@ -21,12 +21,20 @@ export type Item = {
   };
 };
 
-export type ItemCustomDescription = {
-  customDescription: string;
+export type ItemCustomExtend = {
+  customDescription?: ItemCustomDescription;
+  customTags?: string[];
+  defaultImage?: string;
 };
 
-export type ItemCustomTags = {
-  customTags: string[];
+export type ItemCustomDescription = {
+  stats: ItemCustomStats[];
+  passive?: string[];
+};
+
+export type ItemCustomStats = {
+  name: string;
+  value: string;
 };
 
 export type ItemImage = {

@@ -1,7 +1,8 @@
 import { getItems } from "@/server-actions/itemAction";
 import { processItemData } from "@/service/itemService";
-import { ItemTable } from "@/types/Item";
+import { Item, ItemCustomExtend, ItemTable } from "@/types/Item";
 import React from "react";
+import ItemGrid from "./components/ItemGrid";
 
 const Items = async () => {
   // TODO 아이템 데이터 활용
@@ -17,13 +18,13 @@ const Items = async () => {
    */
 
   const items: ItemTable = await getItems();
-  const filteredItemsForRift = processItemData(items);
-
-  // console.log('filter', filter)
+  const itemsCustomExtend: (Item & ItemCustomExtend)[] = processItemData(items);
 
   return (
     <div className="flex p-4">
-      <div className="w-[30%] p-2"></div>
+      <div className="w-[30%] p-2">
+        <ItemGrid items={itemsCustomExtend} />
+      </div>
       <div className="w-[70%] p-2"></div>
     </div>
   );
