@@ -1,28 +1,32 @@
+import { getItems } from "@/server-actions/itemAction";
+import { processItemData } from "@/service/itemService";
+import { ItemTable } from "@/types/Item";
 import React from "react";
 
-const Items = () => {
+const Items = async () => {
   // TODO 아이템 데이터 활용
   /**
-   * 요부
-   * <mainText><stats>기본 마나 재생 <attention>50%</attention></stats><br><br></mainText>
-   *
-   *
-   * "<mainText>
-   * <stats>
-   * 공격력 <attention>60</attention><br>
-   * 물리 관통력 <attention>10</attention><br>
-   * 치명타 확률 <attention>25%</attention>
-   * </stats><br><br>
-   *
-   * <passive>죽음</passive>
-   * <br>체력이 5% 미만인 챔피언에게 피해를 입힐 경우 처형합니다.<br><br>
-   *
-   * <passive>세금</passive><br>
-   * 챔피언 처치 시 <gold>추가로 25골드</gold>를 획득합니다.</mainText>",
-   *
+      # 필요한 컴포넌트
+      - 아이템 그리드 (왼쪽 3~40%)
+        - 아이템 카드
+        - 호버 시 정보 컴포넌트
+      
+      - 우측 영역 
+        - 아이템 조합식
+        - 하위 아이템, 상위 아이템
    */
 
-  return <div>Items Page</div>;
+  const items: ItemTable = await getItems();
+  const filteredItemsForRift = processItemData(items);
+
+  // console.log('filter', filter)
+
+  return (
+    <div className="flex p-4">
+      <div className="w-[30%] p-2"></div>
+      <div className="w-[70%] p-2"></div>
+    </div>
+  );
 };
 
 export default Items;

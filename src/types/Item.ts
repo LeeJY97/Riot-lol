@@ -3,6 +3,7 @@ export type ItemTable = {
 };
 
 export type Item = {
+  id?: string;
   name: string;
   description: string;
   colloq: string;
@@ -18,6 +19,14 @@ export type Item = {
   stats: {
     FlatMovementSpeedMod: 25;
   };
+};
+
+export type ItemCustomDescription = {
+  customDescription: string;
+};
+
+export type ItemCustomTags = {
+  customTags: string[];
 };
 
 export type ItemImage = {
