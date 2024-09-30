@@ -8,7 +8,7 @@ type Props = {
 
 const ItemGrid = ({ items }: Props) => {
   return (
-    <div>
+    <div className="grid grid-cols-4 gap-2">
       {items.map((item) => (
         <ItemCard key={item.id} item={item} />
       ))}
