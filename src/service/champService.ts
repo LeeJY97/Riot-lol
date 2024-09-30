@@ -1,5 +1,4 @@
 import { skillInfo } from "@/app/champs/detail/[id]/skillInfo";
-import Champs from "@/app/champs/page";
 import { Champ, ChampCustomImage, ChampExtends, ChampTable } from "@/types/Champs";
 import Rotation from "@/types/Rotation";
 import version from "@/utils/constant";
@@ -10,14 +9,16 @@ const convertChampsTableToArray = (champTable: ChampTable): Champ[] => {
   });
 };
 
-const getChampsExtendCustomImage = (champs: Champ[]): Champ[] => {
+const getChampsExtendCustomImage = (champs: Champ[]): (Champ & ChampCustomImage)[] => {
   const champsExtendCustomImage = champs.map((champ) => {
-    const customImage: ChampCustomImage = {
-      loadingImage: `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg`,
-    };
-    champ.customImage = customImage;
+    // const customImage: ChampCustomImage = {
+    //   loadingImage: `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg`,
+    // };
+    // champ.customImage = customImage;
 
-    return champ;
+    const loadingImage = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg`;
+
+    return { ...champ, loadingImage };
   });
 
   return champsExtendCustomImage;
@@ -31,6 +32,7 @@ const getChampsWithRotations = (rotationKeys: Rotation, champTable: ChampTable):
   return rotationChampList;
 };
 
+// get -> convert
 const getDetailPageInfos = (champ: Champ & ChampExtends) => {
   const { title, name, lore, skins, tags, stats, image, spells, passive } = champ;
 

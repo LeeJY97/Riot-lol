@@ -21,7 +21,7 @@ export type Champ = {
   stats: ChampStats;
   info: ChampInfo;
   image: ChampImage;
-  customImage?: ChampCustomImage;
+  // customImage?: ChampCustomImage; // 이거 뺴고 &로 타입 합쳐 사용하기 OK
 };
 
 export type ChampImage = {

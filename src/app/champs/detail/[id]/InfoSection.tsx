@@ -19,11 +19,15 @@ const InfoSection = ({ ...info }: Props) => {
       </div>
       <div className="absolute top-1/3 w-[40%] min-w-[500px] max-w-[900px] p-4">
         <h1 className="text-4xl font-bold text-[#C8AA6E]">{info.title}</h1>
-        <div className="flex">
+        <div className="flex items-end">
           <h1 className="text-8xl">{info.name}</h1>
-          <span className="text-2xl">{`(${info.tags.map((tag) => tagMap[tag]).join("/")})`}</span>
+          <span className="text-2xl p-2">{`(${info.tags
+            .map((tag) => tagMap[tag])
+            .join("/")})`}</span>
         </div>
-        <span className="text-lg">{info.lore}</span>
+        <div className="mt-4">
+          <span className="text-lg">{info.lore}</span>
+        </div>
       </div>
     </section>
   );

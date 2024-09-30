@@ -2,10 +2,6 @@ import { getChamp } from "@/server-actions/champAction";
 import { Champ, ChampExtends } from "@/types/Champs";
 import { Metadata } from "next";
 import React from "react";
-import SkinSwiper from "./SkinSwiper";
-import tagMap from "@/utils/champTagMap";
-import { skillInfo } from "./skillInfo";
-import version from "@/utils/constant";
 import SkinSection from "./SkinSection";
 import SkillSection from "./SkillSection";
 import InfoSection from "./InfoSection";
@@ -41,6 +37,8 @@ const ChampDetail = async ({ params }: Props) => {
         <InfoSection {...info} />
       </div>
       <div className="max-w-[1200px] min-w-[1200px] mx-auto">
+        {" "}
+        {/** 이걸 Section에 넣을 수도 */}
         <SkillSection skills={skillsInfo} />
       </div>
       <div className="max-w-[1200px] mx-auto">

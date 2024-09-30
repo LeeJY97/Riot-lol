@@ -1,10 +1,9 @@
-import { Champ } from "@/types/Champs";
-import Link from "next/link";
+import { Champ, ChampCustomImage } from "@/types/Champs";
 import React from "react";
 import ChampCard from "./ChampCard";
 
 type Props = {
-  champs: Champ[];
+  champs: (Champ & ChampCustomImage)[];
 };
 
 const ChampGrid = ({ champs }: Props) => {

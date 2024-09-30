@@ -11,7 +11,10 @@ export async function GET(request: Request): Promise<Response> {
       "X-Riot-Token": apiKey || "",
       "Content-Type": "application/json",
     },
-    cache: "no-store", //이거 빼고 테스트
+    next: {
+      revalidate: 86400,
+    },
+    // cache: "no-store", //이거 빼고 테스트
   });
 
   if (!res.ok) {
