@@ -35,7 +35,11 @@ const filterItemsForRiftAndNotConsumed = (items: Item[]): Item[] => {
 const getItemsCustomExtend = (items: Item[]) => {
   const itemCustomExtend: (Item & ItemCustomExtend)[] = items.map((item) => {
     const customStats = parseStats(item.description);
+    const passiveName = parsePassiveName(item.description);
     const customPassive = parsePassive(item.description);
+
+    console.log("passiveName", passiveName);
+    console.log("customPassive", customPassive);
 
     const customDescription: ItemCustomDescription = {
       stats: customStats,
@@ -60,6 +64,38 @@ const convertItemCustomTags = (tags: string[]): string[] => {
   const filteredTags = tags.filter((tag) => tag in itemTagMap);
   return filteredTags;
 };
+
+function parsePassiveName(description: string): string[] {
+  const passiveDescriptions: string[] = [];
+  let currentPassive: string | null = null;
+
+  const parser = new Parser({
+    onopentag(name) {
+      if (name === "passive") {
+        currentPassive = ""; // 새로운 passive 시작
+      }
+    },
+    ontext(text) {
+      if (currentPassive !== null) {
+        currentPassive += text; // passive 내용 추가
+      }
+    },
+    onclosetag(name) {
+      if (name === "passive" && currentPassive !== null) {
+        passiveDescriptions.push(currentPassive.trim());
+        currentPassive = null; // passive 종료
+      }
+    },
+  });
+
+  parser.write(description);
+  parser.end();
+
+  // 추가적인 처리를 통해 불필요한 텍스트를 제거
+  return passiveDescriptions.map(
+    (desc) => desc.replace(/\s*\(.*?\)/, "").trim(), // 제목 부분 제거
+  );
+}
 
 const parsePassive = (description: string): string[] => {
   const values: string[] = [];

@@ -13,7 +13,7 @@ const ItemCard = ({ item, handleSetItem }: Props) => {
   return (
     <div className="flex flex-col items-center hover-element" onClick={() => handleSetItem(item)}>
       <Image src={item.defaultImage} alt={item.name} width={34} height={34} />
-      <span className="text-[0.6rem]">{item.gold.base}</span>
+      <span className="text-[0.6rem]">{item.gold.total}</span>
     </div>
   );
 };
