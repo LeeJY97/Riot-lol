@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="cursor-element">
       {/* <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#071523]`}> */}
       <body className={`bg-[#071523] text-white ${fontPretendard.className}`}>
         <div className="flex items-center gap-10 w-full h-14 text-white bg-black p-4">
@@ -37,7 +37,7 @@ export default function RootLayout({
             <div className="w-[100%]">{children}</div>
           </Providers>
         </Suspense>
-        <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+        <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center hover-element">
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
             href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
