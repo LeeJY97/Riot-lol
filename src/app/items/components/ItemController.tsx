@@ -16,7 +16,7 @@ const ItemController = ({ items }: Props) => {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
 
   const handleSetItem = (item: Item & ItemCustomExtend) => {
-    setSelectedItem((prev) => ({ ...item }));
+    setSelectedItem(item);
   };
 
   return (
@@ -91,15 +91,27 @@ const ItemController = ({ items }: Props) => {
           <ItemGrid items={items} handleSetItem={handleSetItem} />
         </div>
       </div>
-      <div className="grid grid-rows-2 w-[50%] p-4">
-        <div className="grid grid-cols-2">
-          <ItemInto />
-          <ItemFrom />
+      {!selectedItem ? (
+        <SkeltonInfo />
+      ) : (
+        <div className="mx-auto flex flex-col w-[50%] p-4 gap-2">
+          <div className="h-[20%] border-4">
+            <ItemInto items={items} selectedItem={selectedItem} />
+          </div>
+          <div className="h-[40%] border-4">
+            <ItemFrom items={items} selectedItem={selectedItem} />
+          </div>
+          <div className="h-[35%]">
+            <ItemInfo selectedItem={selectedItem} />
+          </div>
         </div>
-        <div className="">{selectedItem && <ItemInfo item={selectedItem} />}</div>
-      </div>
+      )}
     </div>
   );
+};
+
+const SkeltonInfo = () => {
+  return <div className="flex items-center justify-center w-[50%] p-4">아이템을 선택하세요.</div>;
 };
 
 export default ItemController;

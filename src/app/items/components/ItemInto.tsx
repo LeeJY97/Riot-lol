@@ -1,7 +1,37 @@
+import { Item, ItemCustomExtend } from "@/types/Item";
 import React from "react";
+import ItemCard from "./ItemCard";
+import Image from "next/image";
 
-const ItemInto = () => {
-  return <div>상위 아이템</div>;
+type Props = {
+  items: (Item & ItemCustomExtend)[];
+  selectedItem: Item & ItemCustomExtend;
+  handleSetItem?: (item: Item & ItemCustomExtend) => void;
+};
+
+const ItemInto = ({ items, selectedItem, handleSetItem }: Props) => {
+  if (!selectedItem.into) {
+    return <div>상위 아이템이 없습니다.</div>;
+  }
+  const filterIds = selectedItem.into;
+  const filterItems = items.filter((item) => filterIds.includes(item.id));
+
+  return (
+    <div className="p-2">
+      <h3 className="text-sm">상위 아이템</h3>
+      <div className="flex flex-wrap">
+        {filterItems.map((item) => (
+          <div
+            key={item.id}
+            className="hover-element border-[1px] border-[#3C3C41] h-[36px] p-[1px]"
+            onClick={() => (handleSetItem ? handleSetItem(item) : "")}>
+            <Image src={item.defaultImage} alt={item.name} width={34} height={34} />
+            {/* <span className="text-[0.6rem]">{item.gold.total}</span> */}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default ItemInto;

@@ -25,6 +25,13 @@ const convertItemTableToArray = (itemTable: ItemTable): Item[] => {
   }));
 };
 
+const convertArrayToItemTable = (items: Item[]): ItemTable => {
+  return items.reduce<ItemTable>((table, item) => {
+    table[item.id] = { ...item };
+    return table;
+  }, {});
+};
+
 const filterItemsForRiftAndNotConsumed = (items: Item[]): Item[] => {
   const filterItems = items.filter(
     (item) => item.maps["11"] && !item.consumed && item.inStore != false,
@@ -37,9 +44,6 @@ const getItemsCustomExtend = (items: Item[]) => {
     const customStats = parseStats(item.description);
     const passiveName = parsePassiveName(item.description);
     const customPassive = parsePassive(item.description);
-
-    console.log("passiveName", passiveName);
-    console.log("customPassive", customPassive);
 
     const customDescription: ItemCustomDescription = {
       stats: customStats,
@@ -215,4 +219,4 @@ const parseStats = (description: string): ItemCustomStats[] => {
 
   return stats;
 };
-export { processItemData };
+export { processItemData, convertArrayToItemTable };

@@ -8,7 +8,8 @@ export type Item = {
   description: string;
   colloq: string;
   plaintext: string;
-  into: string[]; // 상위템 아이디 배열
+  into?: string[]; // 상위템 아이디 배열
+  from?: string[]; // 하위템 아이디 배열
   image: ItemImage;
   gold: ItemGold;
   tags: string[]; // 아이템 카테고리 ? ["Boots"]
