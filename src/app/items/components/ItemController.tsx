@@ -7,7 +7,11 @@ import ItemInto from "./ItemInto";
 import ItemFrom from "./ItemFrom";
 import ItemInfo from "./ItemInfo";
 import { itemFilterTags, itemTagMapKr } from "@/utils/itemTagMap";
-import { useFilterItems, useFilterOptions } from "@/hooks/items/useItemController";
+import {
+  useFilterItems,
+  useFilterOptions,
+  useSearchByItemName,
+} from "@/hooks/items/useItemController";
 
 type Props = {
   items: (Item & ItemCustomExtend)[];
@@ -17,14 +21,15 @@ const ItemController = ({ items }: Props) => {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   const { filterOptions, toggleItemFilter, clearItemFilter } = useFilterOptions();
   const { filterItems, updateFilterItems } = useFilterItems(items);
+  const { itemName, handleChangeItemName } = useSearchByItemName();
 
   const handleSetItem = (item: Item & ItemCustomExtend) => {
     setSelectedItem(item);
   };
 
   useEffect(() => {
-    updateFilterItems(filterOptions);
-  }, [filterOptions]);
+    updateFilterItems(filterOptions, itemName);
+  }, [filterOptions, itemName]);
 
   return (
     <div className="flex mx-auto p-4 w-[1440px]">
@@ -45,7 +50,13 @@ const ItemController = ({ items }: Props) => {
       </div>
       <div className="w-[200px] relative">
         <div className="absolute top-0 w-[100%]">
-          <input className="h-6 w-[100%]" type="text" placeholder="아이템명을 입력하세요." />
+          <input
+            className="h-6 w-[100%] text-black"
+            type="text"
+            value={itemName}
+            onChange={handleChangeItemName}
+            placeholder="아이템명을 입력하세요."
+          />
         </div>
         {/* <div className="mt-8 overflow-y-auto h-full max-h-[600px]"> */}
         {/* <div className="mt-8 overflow-y-auto h-full min-h-[600px] max-h-[calc(100vh-100px)]"> */}
