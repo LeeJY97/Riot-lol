@@ -28,7 +28,9 @@ export default function RootLayout({
       <body className={`bg-[#071523] text-white ${fontPretendard.className}`}>
         <div className="flex items-center gap-10 w-full h-14 text-white bg-black p-4">
           <Link href="/">홈</Link>
-          <Link href="/champs">챔피언</Link>
+          <Link href="/champs" prefetch>
+            챔피언
+          </Link>
           <Link href="/rotation">로테이션</Link>
           <Link href="/items">아이템</Link>
         </div>
