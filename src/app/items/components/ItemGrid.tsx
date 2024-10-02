@@ -9,11 +9,14 @@ const ItemGrid = ({ items, handleSetItem }: Props) => {
   return (
     <ul className="grid grid-cols-4 gap-2">
       {items.map((item) => (
+        // hover-element border-[1px] border-[#3C3C41] h-[36px] p-[1px]
         <li
           key={item.id}
-          className="flex flex-col items-center hover-element"
+          className="hover-element flex flex-col items-center  "
           onClick={() => (handleSetItem ? handleSetItem(item) : "")}>
-          <Image src={item.defaultImage} alt={item.name} width={34} height={34} />
+          <div className="border-[1px] border-[#3C3C41] h-[36px] p-[1px]">
+            <Image src={item.defaultImage} alt={item.name} width={34} height={34} />
+          </div>
           <span className="text-[0.6rem]">{item.gold.total}</span>
         </li>
         // <ItemCard key={item.id} item={item} handleSetItem={handleSetItem} />

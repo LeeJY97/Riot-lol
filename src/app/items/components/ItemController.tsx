@@ -42,7 +42,7 @@ const ItemController = ({ items }: Props) => {
 
   return (
     <div className="flex mx-auto p-4 w-[1440px] justify-center">
-      <div className="flex flex-col p-8 w-[170px] text-xs">
+      <div className="flex flex-col justify-center p-8 w-[170px] h-[650px] text-xs">
         <div
           onClick={() => clearItemFilter()}
           className="flex h-6 items-center gap-2 text-[#aa7d30] text-sm">
@@ -50,7 +50,7 @@ const ItemController = ({ items }: Props) => {
           <span className="">모두 지우기</span>
         </div>
 
-        <ul className="flex flex-col gap-[2px]">
+        <ul className="flex flex-col gap-[2px] ">
           {itemFilterTags.map((tagKey, idx) => (
             <li key={idx} onClick={() => toggleItemFilter(tagKey)}>
               <div className="flex h-6 items-center gap-[2px]">
@@ -90,7 +90,7 @@ const ItemController = ({ items }: Props) => {
         {/* <div className="mt-8 overflow-y-auto h-[600px]">
           <ItemGrid items={filterItems} handleSetItem={handleSetItem} />
         </div> */}
-        <ScrollArea className="mt-14 h-[570px] w-[100%] rounded-md border p-4">
+        <ScrollArea className="mt-14 h-[565px] w-[100%] rounded-md border-2 border-[#aa7d30] p-4">
           <ItemGrid items={filterItems} handleSetItem={handleSetItem} />
         </ScrollArea>
       </div>
