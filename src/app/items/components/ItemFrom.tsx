@@ -7,13 +7,14 @@ import ItemTreeChart from "./ItemTreeChart";
 type Props = {
   items: (Item & ItemCustomExtend)[];
   selectedItem: Item & ItemCustomExtend;
+  handleSetItem: (item: Item & ItemCustomExtend) => void;
 };
 
 type NestedItemFromTree = {
   [key: string]: NestedItemFromTree | null;
 };
 
-const ItemFrom = ({ items, selectedItem }: Props) => {
+const ItemFrom = ({ items, selectedItem, handleSetItem }: Props) => {
   if (!selectedItem.from) {
     return <div>하위 아이템이 없습니다.</div>;
   }
@@ -22,7 +23,11 @@ const ItemFrom = ({ items, selectedItem }: Props) => {
   const itemFromTree = buildItemHierarchy(selectedItem.id, itemTable);
   return (
     <div className="">
-      <ItemTreeChart tree={{ [selectedItem.id]: itemFromTree }} itemTable={itemTable} />
+      <ItemTreeChart
+        tree={{ [selectedItem.id]: itemFromTree }}
+        itemTable={itemTable}
+        handleSetItem={handleSetItem}
+      />
     </div>
   );
 };

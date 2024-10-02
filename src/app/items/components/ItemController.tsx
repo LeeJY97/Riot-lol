@@ -79,10 +79,18 @@ const ItemController = ({ items }: Props) => {
       ) : (
         <div className="mx-auto flex flex-col w-[50%] p-4 gap-2">
           <div className="h-[20%] border-4">
-            <ItemInto items={filterItems} selectedItem={selectedItem} />
+            <ItemInto
+              items={filterItems}
+              selectedItem={selectedItem}
+              handleSetItem={handleSetItem}
+            />
           </div>
           <div className="h-[40%] border-4">
-            <ItemFrom items={filterItems} selectedItem={selectedItem} />
+            <ItemFrom
+              items={filterItems}
+              selectedItem={selectedItem}
+              handleSetItem={handleSetItem}
+            />
           </div>
           <div className="h-[35%]">
             <ItemInfo selectedItem={selectedItem} />

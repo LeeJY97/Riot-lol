@@ -8,9 +8,10 @@ type NestedItemFromTree = {
 type TreeProps = {
   tree: NestedItemFromTree;
   itemTable: ItemTable;
+  handleSetItem: (item: Item & ItemCustomExtend) => void;
 };
 
-const ItemTreeChart = ({ tree, itemTable }: TreeProps) => {
+const ItemTreeChart = ({ tree, itemTable, handleSetItem }: TreeProps) => {
   const renderTree = () => {
     const result = [];
 
@@ -43,7 +44,7 @@ const ItemTreeChart = ({ tree, itemTable }: TreeProps) => {
     for (const childId in children) {
       const childItem = itemTable[childId];
       const childLi = (
-        <li key={childId}>
+        <li key={childId} onClick={() => handleSetItem(childItem)}>
           <Image
             width={50}
             height={50}
