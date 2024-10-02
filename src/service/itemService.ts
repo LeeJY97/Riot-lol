@@ -7,7 +7,7 @@ import {
   ItemCustomStats,
   ItemTable,
 } from "@/types/Item";
-import itemTagMap from "@/utils/itemTagMap";
+import itemTagMap, { TAGS_TYPE } from "@/utils/itemTagMap";
 import version from "@/utils/constant";
 
 const processItemData = (itemTable: ItemTable) => {
@@ -65,7 +65,7 @@ const getItemsCustomExtend = (items: Item[]) => {
 };
 
 const convertItemCustomTags = (tags: string[]): string[] => {
-  const filteredTags = tags.filter((tag) => tag in itemTagMap);
+  const filteredTags = tags.filter((tag) => tag in TAGS_TYPE);
   return filteredTags;
 };
 
