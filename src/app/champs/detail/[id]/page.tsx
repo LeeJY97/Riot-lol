@@ -5,7 +5,7 @@ import React from "react";
 import SkinSection from "./SkinSection";
 import SkillSection from "./SkillSection";
 import InfoSection from "./InfoSection";
-import { getDetailPageInfos } from "@/service/champService";
+import { convertDetailPageInfos } from "@/service/champService";
 
 type Props = {
   params: {
@@ -29,7 +29,7 @@ const requestOption: RequestInit = {
 
 const ChampDetail = async ({ params }: Props) => {
   const champ: Champ & ChampExtends = await getChamp(params.id, requestOption);
-  const { info, skillsInfo, skinsInfo } = getDetailPageInfos(champ);
+  const { info, skillsInfo, skinsInfo } = convertDetailPageInfos(champ);
 
   return (
     <div className="flex flex-col max-w-[1920px] gap-10 mx-auto">

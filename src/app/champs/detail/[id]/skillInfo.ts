@@ -9,10 +9,3 @@ export type skillInfo = {
   costType?: string;
   rangeBurn?: string;
 };
-
-// export type skillInfo = {
-//   cooldownBurn: string;
-//   costBurn: string;
-//   costType: string;
-//   rangeBurn: string;
-// };
