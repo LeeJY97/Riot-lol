@@ -12,6 +12,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "target": "es2018", // 이 부분 추가
     "plugins": [
       {
         "name": "next"
