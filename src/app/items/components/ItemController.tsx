@@ -7,11 +7,15 @@ import ItemInto from "./ItemInto";
 import ItemFrom from "./ItemFrom";
 import ItemInfo from "./ItemInfo";
 import { itemFilterTags, itemTagMapKr } from "@/utils/itemTagMap";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   useFilterItems,
   useFilterOptions,
   useSearchByItemName,
 } from "@/hooks/items/useItemController";
+import nonChecked from "@/public/assets/images/non_checked.png";
+import checked from "@/public/assets/images/checked2.png";
+import Image from "next/image";
 
 type Props = {
   items: (Item & ItemCustomExtend)[];
@@ -38,17 +42,30 @@ const ItemController = ({ items }: Props) => {
 
   return (
     <div className="flex mx-auto p-4 w-[1440px]">
-      <div className="flex flex-col p-8 w-[150px] text-xs">
-        <div onClick={() => clearItemFilter()}>
-          <button>[&nbsp;&nbsp;&nbsp;]</button>
-          <span>모두 지우기</span>
+      <div className="flex flex-col p-8 w-[170px] text-xs">
+        <div
+          onClick={() => clearItemFilter()}
+          className="flex h-6 items-center gap-2 text-[#aa7d30] text-sm">
+          <button>✖</button>
+          <span className="">모두 지우기</span>
         </div>
 
-        <ul>
+        <ul className="flex flex-col gap-[2px]">
           {itemFilterTags.map((tagKey, idx) => (
             <li key={idx} onClick={() => toggleItemFilter(tagKey)}>
-              {filterOptions[tagKey] ? <button>[V]</button> : <button>[&nbsp;&nbsp;&nbsp;]</button>}
-              <span>{itemTagMapKr[tagKey]}</span>
+              <div className="flex h-6 items-center gap-[2px]">
+                {filterOptions[tagKey] ? (
+                  <button>
+                    <Image src={checked} alt="버튼 이미지" width={15} height={15} />
+                  </button>
+                ) : (
+                  <button>
+                    <Image src={nonChecked} alt="버튼 이미지" width={15} height={15} />
+                  </button>
+                )}
+                &nbsp;
+                <span>{itemTagMapKr[tagKey]}</span>
+              </div>
             </li>
           ))}
         </ul>
@@ -70,9 +87,12 @@ const ItemController = ({ items }: Props) => {
             <option value="desc">골드 ▼</option>
           </select>
         </div>
-        <div className="mt-8 overflow-y-auto h-[600px]">
+        {/* <div className="mt-8 overflow-y-auto h-[600px]">
           <ItemGrid items={filterItems} handleSetItem={handleSetItem} />
-        </div>
+        </div> */}
+        <ScrollArea className="mt-8 h-[600px] w-52 rounded-md border p-4">
+          <ItemGrid items={filterItems} handleSetItem={handleSetItem} />
+        </ScrollArea>
       </div>
       {!selectedItem ? (
         <SkeltonInfo />

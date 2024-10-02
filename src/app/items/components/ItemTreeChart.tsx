@@ -1,4 +1,4 @@
-import { ItemTable } from "@/types/Item";
+import { Item, ItemCustomExtend, ItemTable } from "@/types/Item";
 import Image from "next/image";
 
 type NestedItemFromTree = {
@@ -51,7 +51,6 @@ const ItemTreeChart = ({ tree, itemTable, handleSetItem }: TreeProps) => {
             src={`https://ddragon.leagueoflegends.com/cdn/14.19.1/img/item/${childId}.png`}
             alt={childItem ? childItem.name : `아이템 ${childId} 없음`}
           />
-          {/* 더 하위 아이템이 있을 경우 */}
           {children[childId] && Object.keys(children[childId]).length > 0 && (
             <ul>{renderChildren(children[childId])}</ul>
           )}
