@@ -12,7 +12,8 @@ const Rotation = () => {
   const { data: rotationKeys } = useSuspenseQuery<Rotation>({
     queryKey: queryKey.rotation.rotationKeys,
     queryFn: async () => {
-      const rotationRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/rotation`);
+      // const rotationRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/rotation`);
+      const rotationRes = await fetch(`/api/rotation`);
       const rotationKeys = await rotationRes.json();
       return rotationKeys;
     },

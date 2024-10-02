@@ -1,6 +1,5 @@
 import { Item, ItemCustomExtend } from "@/types/Item";
 import React from "react";
-import ItemCard from "./ItemCard";
 import Image from "next/image";
 
 type Props = {

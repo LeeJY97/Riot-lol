@@ -34,7 +34,7 @@ const getChampsWithRotations = (rotationKeys: Rotation, champTable: ChampTable):
 
 // get -> convert
 const getDetailPageInfos = (champ: Champ & ChampExtends) => {
-  const { title, name, lore, skins, tags, stats, image, spells, passive } = champ;
+  const { title, name, lore, skins, tags, spells, passive } = champ;
 
   const skinsInfo = skins.map((skin) => ({
     name: skin.name,

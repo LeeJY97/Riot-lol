@@ -7,7 +7,7 @@ import {
   ItemCustomStats,
   ItemTable,
 } from "@/types/Item";
-import itemTagMap, { TAGS_TYPE } from "@/utils/itemTagMap";
+import { TAGS_TYPE } from "@/utils/itemTagMap";
 import version from "@/utils/constant";
 
 const processItemData = (itemTable: ItemTable) => {
@@ -42,7 +42,7 @@ const filterItemsForRiftAndNotConsumed = (items: Item[]): Item[] => {
 const getItemsCustomExtend = (items: Item[]) => {
   const itemCustomExtend: (Item & ItemCustomExtend)[] = items.map((item) => {
     const customStats = parseStats(item.description);
-    const passiveName = parsePassiveName(item.description);
+    // const passiveName = parsePassiveName(item.description);
     const customPassive = parsePassive(item.description);
 
     const customDescription: ItemCustomDescription = {

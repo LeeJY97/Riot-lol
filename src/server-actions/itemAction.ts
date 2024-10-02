@@ -1,6 +1,6 @@
 "use server";
 
-import { Item, ItemTable } from "@/types/Item";
+import { ItemTable } from "@/types/Item";
 import version from "@/utils/constant";
 
 const getItems = async (): Promise<ItemTable> => {

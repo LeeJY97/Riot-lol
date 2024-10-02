@@ -1,7 +1,7 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
+import { Swiper } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination"; // pagination 스타일 추가
