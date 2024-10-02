@@ -1,12 +1,12 @@
 "use client";
 
-import ChampGrid from "@/components/ChampGrid";
 import queryKey from "@/Queries/queryKey";
 import { getChamps } from "@/server-actions/champAction";
 import { getChampsExtendCustomImage, getChampsWithRotations } from "@/service/champService";
 import { ChampTable } from "@/types/Champs";
 import type Rotation from "@/types/Rotation";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import ChampGrid from "../components/ChampGrid";
 
 const Rotation = () => {
   console.log(`Fetching from: ${process.env.NEXT_PUBLIC_BASE_URL}/api/rotation`);

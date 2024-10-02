@@ -1,4 +1,4 @@
-import { skillInfo } from "@/app/champs/detail/[id]/skillInfo";
+import { skillInfo } from "@/app/(champ)/champs/detail/[id]/skillInfo";
 import { Champ, ChampCustomImage, ChampExtends, ChampTable } from "@/types/Champs";
 import Rotation from "@/types/Rotation";
 import version from "@/constant/constant";
