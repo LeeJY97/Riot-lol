@@ -36,7 +36,7 @@ export default function RootLayout({
         </div>
         <Suspense fallback={<>... 로딩</>}>
           <Providers>
-            <div className="w-[100%]">{children}</div>
+            <div className="w-[100%] flex justify-center">{children}</div>
           </Providers>
         </Suspense>
         <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center hover-element">

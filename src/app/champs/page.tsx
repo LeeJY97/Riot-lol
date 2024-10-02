@@ -14,8 +14,8 @@ const Champs = async () => {
   const champs = convertChampsTableToArray(data);
   const champsExtendCustomImage = getChampsExtendCustomImage(champs);
   return (
-    <div className="max-w-[1200px] mx-auto p-4">
-      <ChampGrid champs={champsExtendCustomImage} />;
+    <div className="max-w-[1200px] min-w-[990px] p-4">
+      <ChampGrid champs={champsExtendCustomImage} />
     </div>
   );
 };
