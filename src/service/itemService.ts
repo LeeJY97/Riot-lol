@@ -7,8 +7,8 @@ import {
   ItemCustomStats,
   ItemTable,
 } from "@/types/Item";
-import { ITEM_TAGS } from "@/utils/itemTagMap";
-import version from "@/utils/constant";
+import { ITEM_TAGS } from "@/constant/itemTags";
+import version from "@/constant/constant";
 
 const processItemData = (itemTable: ItemTable) => {
   const itemTableToArray = convertItemTableToArray(itemTable);

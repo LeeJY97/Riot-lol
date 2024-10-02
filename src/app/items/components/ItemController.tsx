@@ -6,7 +6,7 @@ import { Item, ItemCustomExtend } from "@/types/Item";
 import ItemInto from "./ItemInto";
 import ItemFrom from "./ItemFrom";
 import ItemInfo from "./ItemInfo";
-import { itemFilterTags, itemTagMapKr } from "@/utils/itemTagMap";
+import { itemFilterTags, itemTagMapKr } from "@/constant/itemTags";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   useFilterItems,

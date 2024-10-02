@@ -1,7 +1,7 @@
 import { skillInfo } from "@/app/champs/detail/[id]/skillInfo";
 import { Champ, ChampCustomImage, ChampExtends, ChampTable } from "@/types/Champs";
 import Rotation from "@/types/Rotation";
-import version from "@/utils/constant";
+import version from "@/constant/constant";
 
 const convertChampsTableToArray = (champTable: ChampTable): Champ[] => {
   return Object.values(champTable).sort((a, b) => {

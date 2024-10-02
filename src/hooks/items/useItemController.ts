@@ -1,5 +1,5 @@
+import { ITEM_TAGS } from "@/constant/itemTags";
 import { Item, ItemCustomExtend } from "@/types/Item";
-import { ITEM_TAGS } from "@/utils/itemTagMap";
 import { useState } from "react";
 
 const initialFilterOptions = Object.values(ITEM_TAGS).reduce((acc, value) => {
