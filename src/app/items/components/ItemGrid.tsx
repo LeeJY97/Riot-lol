@@ -9,7 +9,6 @@ const ItemGrid = ({ items, handleSetItem }: Props) => {
   return (
     <ul className="grid grid-cols-4 gap-2">
       {items.map((item) => (
-        // hover-element border-[1px] border-[#3C3C41] h-[36px] p-[1px]
         <li
           key={item.id}
           className="hover-element flex flex-col items-center  "
@@ -19,7 +18,6 @@ const ItemGrid = ({ items, handleSetItem }: Props) => {
           </div>
           <span className="text-[0.6rem]">{item.gold.total}</span>
         </li>
-        // <ItemCard key={item.id} item={item} handleSetItem={handleSetItem} />
       ))}
     </ul>
   );

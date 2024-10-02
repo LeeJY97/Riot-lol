@@ -41,7 +41,7 @@ const ItemController = ({ items }: Props) => {
   }, [filterOptions, itemName, sortOption]);
 
   return (
-    <div className="flex mx-auto p-4 w-[1440px] justify-center">
+    <div className="flex p-4 w-[100%] min-w-[1200px] justify-center">
       <div className="flex flex-col justify-center p-8 w-[170px] h-[650px] text-xs">
         <div
           onClick={() => clearItemFilter()}
