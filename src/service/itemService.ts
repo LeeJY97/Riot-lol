@@ -69,37 +69,37 @@ const convertItemCustomTags = (tags: string[]): string[] => {
   return filteredTags;
 };
 
-function parsePassiveName(description: string): string[] {
-  const passiveDescriptions: string[] = [];
-  let currentPassive: string | null = null;
+// function parsePassiveName(description: string): string[] {
+//   const passiveDescriptions: string[] = [];
+//   let currentPassive: string | null = null;
 
-  const parser = new Parser({
-    onopentag(name) {
-      if (name === "passive") {
-        currentPassive = ""; // 새로운 passive 시작
-      }
-    },
-    ontext(text) {
-      if (currentPassive !== null) {
-        currentPassive += text; // passive 내용 추가
-      }
-    },
-    onclosetag(name) {
-      if (name === "passive" && currentPassive !== null) {
-        passiveDescriptions.push(currentPassive.trim());
-        currentPassive = null; // passive 종료
-      }
-    },
-  });
+//   const parser = new Parser({
+//     onopentag(name) {
+//       if (name === "passive") {
+//         currentPassive = ""; // 새로운 passive 시작
+//       }
+//     },
+//     ontext(text) {
+//       if (currentPassive !== null) {
+//         currentPassive += text; // passive 내용 추가
+//       }
+//     },
+//     onclosetag(name) {
+//       if (name === "passive" && currentPassive !== null) {
+//         passiveDescriptions.push(currentPassive.trim());
+//         currentPassive = null; // passive 종료
+//       }
+//     },
+//   });
 
-  parser.write(description);
-  parser.end();
+//   parser.write(description);
+//   parser.end();
 
-  // 추가적인 처리를 통해 불필요한 텍스트를 제거
-  return passiveDescriptions.map(
-    (desc) => desc.replace(/\s*\(.*?\)/, "").trim(), // 제목 부분 제거
-  );
-}
+//   // 추가적인 처리를 통해 불필요한 텍스트를 제거
+//   return passiveDescriptions.map(
+//     (desc) => desc.replace(/\s*\(.*?\)/, "").trim(), // 제목 부분 제거
+//   );
+// }
 
 const parsePassive = (description: string): string[] => {
   const values: string[] = [];

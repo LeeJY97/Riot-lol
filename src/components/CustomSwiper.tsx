@@ -32,7 +32,6 @@ const CustomSwiper = ({ children, slidesPerView = 1 }: Props) => {
       }}
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => {}}
       onSlideChange={() => {}}>
       {children}
     </Swiper>
