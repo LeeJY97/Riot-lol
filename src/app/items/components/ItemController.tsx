@@ -41,7 +41,7 @@ const ItemController = ({ items }: Props) => {
   }, [filterOptions, itemName, sortOption]);
 
   return (
-    <div className="flex mx-auto p-4 w-[1440px]">
+    <div className="flex mx-auto p-4 w-[1440px] justify-center">
       <div className="flex flex-col p-8 w-[170px] text-xs">
         <div
           onClick={() => clearItemFilter()}
@@ -70,8 +70,8 @@ const ItemController = ({ items }: Props) => {
           ))}
         </ul>
       </div>
-      <div className="w-[200px] relative">
-        <div className="absolute top-0 flex gap-2 w-[100%]">
+      <div className="relative w-[230px] h-[650px]">
+        <div className="absolute top-[16px] flex gap-2 w-[100%] h-[30px]">
           <input
             className="h-6 w-[60%] text-black text-xs"
             type="text"
@@ -90,14 +90,14 @@ const ItemController = ({ items }: Props) => {
         {/* <div className="mt-8 overflow-y-auto h-[600px]">
           <ItemGrid items={filterItems} handleSetItem={handleSetItem} />
         </div> */}
-        <ScrollArea className="mt-8 h-[600px] w-52 rounded-md border p-4">
+        <ScrollArea className="mt-14 h-[570px] w-[100%] rounded-md border p-4">
           <ItemGrid items={filterItems} handleSetItem={handleSetItem} />
         </ScrollArea>
       </div>
       {!selectedItem ? (
         <SkeltonInfo />
       ) : (
-        <div className="mx-auto flex flex-col w-[50%] p-4 gap-2">
+        <div className="flex flex-col w-[50%] p-4 gap-2 h-[650px]">
           <div className="h-[20%] border-4">
             <ItemInto
               items={filterItems}
