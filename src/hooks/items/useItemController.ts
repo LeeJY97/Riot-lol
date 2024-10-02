@@ -26,25 +26,14 @@ export const useFilterOptions = () => {
   return { filterOptions, toggleItemFilter, clearItemFilter };
 };
 
-// 추상화 레벨을 더 올려서 다른 곳에서(챔피언 등)도 filter 조건으로 사용 가능한 함수로 만들어보기?
-// 도전?
-
-// if (filterArray.length < 1) {
-// setFilterItems(items);
-// return;
-// }
-
-// const filterArray = Object.entries(filterOptions).reduce((acc, [key, value]) => {
-//   if (value) acc.push(key);
-//   return acc;
-// }, []);
-
-// const filterArray = Object.entries(filterOptions).filter(([key, value]) => value);
-
 export const useFilterItems = (items: (Item & ItemCustomExtend)[]) => {
   const [filterItems, setFilterItems] = useState(items);
 
-  const updateFilterItems = (filterOptions: FilterOptions, itemName: string) => {
+  const getFilteredAndSortedItems = (
+    filterOptions: FilterOptions,
+    itemName: string,
+    sortOption: string,
+  ) => {
     const filterArray = Object.entries(filterOptions).reduce((acc, [key, value]) => {
       if (value) acc.push(key);
       return acc;
@@ -63,25 +52,22 @@ export const useFilterItems = (items: (Item & ItemCustomExtend)[]) => {
     const filterItemByTag = getFilterItemByTag();
 
     const getFilterItemByName = () => {
-      console.log("filterItemByTag", filterItemByTag);
-      console.log("itemName", itemName);
       return filterItemByTag.filter((item) => item.name.includes(itemName));
     };
-
-    // lodash => reduce, filter, include 등을 체이닝해서 편하게 뭐 ..
-
     const filterItemByName = getFilterItemByName();
 
-    // const searchFilterItem = tagFilterItem.filter((tagItem) => tagItem.name === itemName);
+    const getSortItemByOption = () => {
+      if (sortOption === "asc") {
+        return filterItemByName.sort((a, b) => a.gold.total - b.gold.total);
+      }
+      return filterItemByName.sort((a, b) => b.gold.total - a.gold.total);
+    };
+    const sortItemByOption = getSortItemByOption();
 
-    // filter된, item목록을 만들고, setFilterItems에 set해주도록 변경
-    // 그리고, 타이핑으로 필터, 태그로 필터한 이후 set. (함수 역할 분리)
-    setFilterItems(filterItemByName);
+    setFilterItems(sortItemByOption);
   };
 
-  // const updateSearchFilterItems = () => {}
-
-  return { filterItems, updateFilterItems };
+  return { filterItems, getFilteredAndSortedItems };
 };
 
 export const useSearchByItemName = () => {

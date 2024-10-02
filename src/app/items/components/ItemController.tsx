@@ -20,16 +20,21 @@ type Props = {
 const ItemController = ({ items }: Props) => {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   const { filterOptions, toggleItemFilter, clearItemFilter } = useFilterOptions();
-  const { filterItems, updateFilterItems } = useFilterItems(items);
+  const { filterItems, getFilteredAndSortedItems } = useFilterItems(items);
   const { itemName, handleChangeItemName } = useSearchByItemName();
+  const [sortOption, setSortOption] = useState("asc");
 
   const handleSetItem = (item: Item & ItemCustomExtend) => {
     setSelectedItem(item);
   };
 
+  // const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   setSortOption(e.target.value);
+  // };
+
   useEffect(() => {
-    updateFilterItems(filterOptions, itemName);
-  }, [filterOptions, itemName]);
+    getFilteredAndSortedItems(filterOptions, itemName, sortOption);
+  }, [filterOptions, itemName, sortOption]);
 
   return (
     <div className="flex mx-auto p-4 w-[1440px]">
@@ -49,17 +54,22 @@ const ItemController = ({ items }: Props) => {
         </ul>
       </div>
       <div className="w-[200px] relative">
-        <div className="absolute top-0 w-[100%]">
+        <div className="absolute top-0 flex gap-2 w-[100%]">
           <input
-            className="h-6 w-[100%] text-black"
+            className="h-6 w-[60%] text-black text-xs"
             type="text"
             value={itemName}
             onChange={handleChangeItemName}
             placeholder="아이템명을 입력하세요."
           />
+          <select
+            className="h-6 w-[40%] text-black"
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}>
+            <option value="asc">골드 ▲</option>
+            <option value="desc">골드 ▼</option>
+          </select>
         </div>
-        {/* <div className="mt-8 overflow-y-auto h-full max-h-[600px]"> */}
-        {/* <div className="mt-8 overflow-y-auto h-full min-h-[600px] max-h-[calc(100vh-100px)]"> */}
         <div className="mt-8 overflow-y-auto h-[600px]">
           <ItemGrid items={filterItems} handleSetItem={handleSetItem} />
         </div>
