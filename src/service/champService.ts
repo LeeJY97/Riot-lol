@@ -63,7 +63,7 @@ const getDetailPageInfos = (champ: Champ & ChampExtends) => {
       id,
       keyboard: keyMap[idx],
       name,
-      description,
+      description: description.replace(/<[^>]*>/g, ""),
       cooldownBurn,
       costBurn,
       costType,
@@ -76,7 +76,7 @@ const getDetailPageInfos = (champ: Champ & ChampExtends) => {
     id: "P",
     keyboard: "P",
     name: passive.name,
-    description: passive.description,
+    description: passive.description.replace(/<[^>]*>/g, ""),
     url: `${SKILL_BASE_URL}/passive/${passive.image.full}`,
   };
 
