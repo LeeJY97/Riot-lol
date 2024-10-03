@@ -2,6 +2,8 @@ import { getChamps } from "@/server-actions/champAction";
 import { Metadata } from "next";
 import React from "react";
 import ChampsController from "./components/ChampsController";
+import rift from "@/public/assets/images/rift.webp";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "전체 챔피언 목록",
@@ -12,7 +14,14 @@ const Champs = async () => {
   const champTable = await getChamps();
 
   return (
-    <ChampsController champTable={champTable} />
+    <>
+      <div className="fixed top-0 left-0 w-full h-full">
+        <Image src={rift} alt={"dd"} layout="fill"></Image>
+      </div>
+      <div className="pt-[56px]">
+        <ChampsController champTable={champTable} />
+      </div>
+    </>
     // <div className="flex justify-end max-w-[1440px] min-w-[990px] p-4 relative">
     //   <div className="absolute right-4 flex flex-col gap-10 w-[15%]">
     //     <select

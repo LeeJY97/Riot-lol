@@ -14,10 +14,8 @@ type Props = {
 };
 
 export function generateMetadata({ params }: Props): Metadata {
-  const id = params.id;
-
   return {
-    title: id,
+    title: params.id,
   };
 }
 

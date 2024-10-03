@@ -21,8 +21,8 @@ const ChampsController = ({ champTable }: Props) => {
   const [viewOption, setViewOption] = useState("all");
 
   return (
-    <div className="flex justify-end max-w-[1440px] min-w-[990px] p-4 relative">
-      <div className="absolute right-4 flex flex-col gap-10 w-[15%]">
+    <div className="flex flex-col gap-2 justify-end max-w-[1440px] min-w-[990px] p-4 relative">
+      <div className="flex flex-col gap-10 w-[15%]">
         <select
           className="h-6 w-[100%] text-black"
           value={viewOption}
@@ -35,10 +35,13 @@ const ChampsController = ({ champTable }: Props) => {
         <ChampSeparationByTag champsSeparationByTag={champsSeparationByTag}></ChampSeparationByTag>
       ) : (
         <div className="flex flex-col">
-          <div className="flex gap-4 mb-4 text-xl">
-            <h1>전체 챔피언 목록</h1>
+          {/* <div className="flex gap-4 mb-4 text-xl"> */}
+          <div className="mb-10 pb-10 border-b-2 pt-14 pl-4 pr-4 bg-[rgba(255,255,255,.2)] rounded-xl">
+            <div className="flex flex-col justify-center items-center h-7 mb-4">
+              <h1>전체 챔피언 목록</h1>
+            </div>
+            <ChampGrid champs={champsExtendCustomImage} />
           </div>
-          <ChampGrid champs={champsExtendCustomImage} />
         </div>
       )}
     </div>

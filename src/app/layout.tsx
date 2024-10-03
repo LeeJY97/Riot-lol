@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en" className="cursor-element">
       {/* <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#071523]`}> */}
       <body className={`bg-[#071523] text-white ${fontPretendard.className}`}>
-        <div className="flex items-center gap-10 w-full h-14 text-white bg-black p-4">
+        <div className="fixed z-50 top-0 left-0 flex items-center gap-10 w-full h-14 text-white bg-black p-4">
           <Link href="/">홈</Link>
           <Link href="/champs" prefetch>
             챔피언
