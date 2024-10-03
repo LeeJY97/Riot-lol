@@ -30,8 +30,6 @@ const separationChampsByTag = (champs: (Champ & ChampCustomImage)[]) => {
     return acc;
   }, initialChampList);
 
-  // console.log("champsSeparationByTag", champsSeparationByTag.Tank);
-
   return champsSeparationByTag;
 };
 
@@ -43,11 +41,6 @@ const convertChampsTableToArray = (champTable: ChampTable): Champ[] => {
 
 const getChampsExtendCustomImage = (champs: Champ[]): (Champ & ChampCustomImage)[] => {
   const champsExtendCustomImage = champs.map((champ) => {
-    // const customImage: ChampCustomImage = {
-    //   loadingImage: `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg`,
-    // };
-    // champ.customImage = customImage;
-
     const loadingImage = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg`;
 
     return { ...champ, loadingImage };

@@ -54,7 +54,7 @@ export const useFilterItems = (items: (Item & ItemCustomExtend)[]) => {
       return items.filter((item) => item.name.includes(itemName));
     }
 
-    function getSortItemByOption(items: (Item & ItemCustomExtend)[]) {
+    function getSortItemByGold(items: (Item & ItemCustomExtend)[]) {
       if (sortOption === "asc") {
         return items.sort((a, b) => a.gold.total - b.gold.total);
       }
@@ -63,7 +63,7 @@ export const useFilterItems = (items: (Item & ItemCustomExtend)[]) => {
 
     const filterItemByTag = getFilterItemByTag(items);
     const filterItemByName = getFilterItemByName(filterItemByTag);
-    const sortItemByOption = getSortItemByOption(filterItemByName);
+    const sortItemByOption = getSortItemByGold(filterItemByName);
 
     setFilterAndSortItems(sortItemByOption);
   };
@@ -77,8 +77,5 @@ export const useSearchByItemName = () => {
   const handleChangeItemName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setItemName(e.target.value);
   };
-
-  console.log("itemName", itemName);
-
   return { itemName, handleChangeItemName };
 };
