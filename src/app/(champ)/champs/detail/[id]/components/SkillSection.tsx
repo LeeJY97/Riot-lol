@@ -1,8 +1,8 @@
 import React from "react";
-import { skillInfo } from "./skillInfo";
+import { SkillInfo } from "@/types/Champs";
 
 type Props = {
-  skills: skillInfo[];
+  skills: SkillInfo[];
 };
 
 const SkillSection = ({ skills }: Props) => {

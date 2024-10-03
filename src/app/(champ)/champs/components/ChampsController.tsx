@@ -1,6 +1,12 @@
+"use client";
+import { ChampTable } from "@/types/Champs";
 import React from "react";
 
-const ChampsController = () => {
+type Props = {
+  champTable: ChampTable;
+};
+
+const ChampsController = ({ champTable: ChampTable }) => {
   return <div>ChampsController</div>;
 };
 

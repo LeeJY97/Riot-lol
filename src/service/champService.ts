@@ -1,4 +1,4 @@
-import { skillInfo } from "@/app/(champ)/champs/detail/[id]/skillInfo";
+import { SkillInfo } from "@/types/Champs";
 import {
   Champ,
   CHAMP_TAGS,
@@ -111,7 +111,7 @@ const convertDetailPageInfos = (champ: Champ & ChampExtends) => {
     url: `${SKILL_BASE_URL}/passive/${passive.image.full}`,
   };
 
-  const skillsInfo: skillInfo[] = [passiveInfo, ...activeInfo];
+  const skillsInfo: SkillInfo[] = [passiveInfo, ...activeInfo];
 
   return { info, skillsInfo, skinsInfo };
 };

@@ -3,8 +3,8 @@ import { Champ, ChampExtends } from "@/types/Champs";
 import { Metadata } from "next";
 import React from "react";
 import SkinSection from "./SkinSection";
-import SkillSection from "./SkillSection";
-import InfoSection from "./InfoSection";
+import SkillSection from "./components/SkillSection";
+import InfoSection from "./components/InfoSection";
 import { convertDetailPageInfos } from "@/service/champService";
 
 type Props = {
