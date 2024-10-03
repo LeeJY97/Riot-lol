@@ -2,7 +2,7 @@ import { getChamp } from "@/server-actions/champAction";
 import { Champ, ChampExtends } from "@/types/Champs";
 import { Metadata } from "next";
 import React from "react";
-import SkinSection from "./SkinSection";
+import SkinSection from "./components/SkinSection";
 import SkillSection from "./components/SkillSection";
 import InfoSection from "./components/InfoSection";
 import { convertDetailPageInfos } from "@/service/champService";
