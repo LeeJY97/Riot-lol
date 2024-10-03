@@ -31,15 +31,29 @@ const Champs = async () => {
   const viewOption = "tag";
 
   return (
-    <div className="max-w-[1200px] min-w-[990px] p-4">
-      {viewOption === "tag" ? (
-        <ChampSeparationByTag champsSeparationByTag={champsSeparationByTag}></ChampSeparationByTag>
-      ) : (
-        <>
-          <h1>전체 챔피언 목록</h1>
-          <ChampGrid champs={champsExtendCustomImage} />
-        </>
-      )}
+    <div className="flex justify-end max-w-[1440px] min-w-[990px] p-4 relative">
+      <div className="absolute top-10 left-4 flex flex-col gap-10 w-[15%] bg-black">
+        <input type="text" name="" id="" placeholder="검색" />
+        <select
+          className="h-6 w-[100%] text-black"
+          // value={sortOption}
+          // onChange={(e) => setSortOption(e.target.value)}
+        >
+          <option value="asc">전체</option>
+          <option value="desc">역할군</option>
+        </select>
+      </div>
+      <div className="w-[80%]">
+        {viewOption === "tag" ? (
+          <ChampSeparationByTag
+            champsSeparationByTag={champsSeparationByTag}></ChampSeparationByTag>
+        ) : (
+          <>
+            <h1>전체 챔피언 목록</h1>
+            <ChampGrid champs={champsExtendCustomImage} />
+          </>
+        )}
+      </div>
     </div>
   );
 };

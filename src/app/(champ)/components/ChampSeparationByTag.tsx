@@ -6,13 +6,14 @@ type Props = {
 };
 
 const ChampSeparationByTag = ({ champsSeparationByTag }: Props) => {
-  console.log("champsSeparationByTag", champsSeparationByTag.Assassin);
-
   return (
     <ul>
       {Object.keys(champsSeparationByTag).map((tag) => (
-        <ul key={tag}>
-          <h1 className="mb-4 text-xl">{champTagMapKr[tag]}</h1>
+        <ul key={tag} className="mb-10 pb-10 border-b-2">
+          <div className="flex gap-4 mb-4 text-xl">
+            <h1 className="">{champTagMapKr[tag]}</h1>
+            <h1>{champsSeparationByTag[tag].length}</h1>
+          </div>
           <ChampGrid champs={champsSeparationByTag[tag]} />
         </ul>
       ))}
