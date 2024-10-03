@@ -24,7 +24,7 @@ type Props = {
 const ItemController = ({ items }: Props) => {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   const { filterOptions, toggleItemFilter, clearItemFilter } = useFilterOptions();
-  const { filterItems, getFilteredAndSortedItems } = useFilterItems(items);
+  const { filterAndSortItems, handleFilterAndSortItems } = useFilterItems(items);
   const { itemName, handleChangeItemName } = useSearchByItemName();
   const [sortOption, setSortOption] = useState("asc");
 
@@ -33,7 +33,7 @@ const ItemController = ({ items }: Props) => {
   };
 
   useEffect(() => {
-    getFilteredAndSortedItems(filterOptions, itemName, sortOption);
+    handleFilterAndSortItems(filterOptions, itemName, sortOption);
   }, [filterOptions, itemName, sortOption]);
 
   return (
@@ -87,7 +87,7 @@ const ItemController = ({ items }: Props) => {
           <ItemGrid items={filterItems} handleSetItem={handleSetItem} />
         </div> */}
         <ScrollArea className="mt-14 h-[565px] w-[100%] rounded-md border-2 border-[#aa7d30] p-4">
-          <ItemGrid items={filterItems} handleSetItem={handleSetItem} />
+          <ItemGrid items={filterAndSortItems} handleSetItem={handleSetItem} />
         </ScrollArea>
       </div>
       {!selectedItem ? (

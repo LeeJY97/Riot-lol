@@ -27,9 +27,9 @@ export const useFilterOptions = () => {
 };
 
 export const useFilterItems = (items: (Item & ItemCustomExtend)[]) => {
-  const [filterItems, setFilterItems] = useState(items);
+  const [filterAndSortItems, setFilterAndSortItems] = useState(items);
 
-  const getFilteredAndSortedItems = (
+  const handleFilterAndSortItems = (
     filterOptions: FilterOptions,
     itemName: string,
     sortOption: string,
@@ -65,10 +65,10 @@ export const useFilterItems = (items: (Item & ItemCustomExtend)[]) => {
     const filterItemByName = getFilterItemByName(filterItemByTag);
     const sortItemByOption = getSortItemByOption(filterItemByName);
 
-    setFilterItems(sortItemByOption);
+    setFilterAndSortItems(sortItemByOption);
   };
 
-  return { filterItems, getFilteredAndSortedItems };
+  return { filterAndSortItems, handleFilterAndSortItems };
 };
 
 export const useSearchByItemName = () => {
