@@ -1,6 +1,5 @@
-import { champTagMapKr } from "@/constant/champTags";
+import { champTagMapKr } from "@/types/Champs";
 import React from "react";
-
 type Props = {
   imageUrl: string;
   title: string;
