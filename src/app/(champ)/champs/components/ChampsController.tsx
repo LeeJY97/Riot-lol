@@ -6,7 +6,7 @@ import {
 } from "@/service/champService";
 import { ChampTable } from "@/types/Champs";
 import React, { useState } from "react";
-import ChampSeparationByTag from "../../components/ChampSeparationByTag";
+import ChampSeparationByTag from "./ChampSeparationByTag";
 import ChampGrid from "../../components/ChampGrid";
 
 type Props = {

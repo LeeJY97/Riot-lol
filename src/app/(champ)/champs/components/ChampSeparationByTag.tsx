@@ -1,6 +1,6 @@
 import { ChampsSeparationByTag, champTagMapKr } from "@/types/Champs";
 import React from "react";
-import ChampGrid from "./ChampGrid";
+import ChampGrid from "../../components/ChampGrid";
 type Props = {
   champsSeparationByTag: ChampsSeparationByTag;
 };
