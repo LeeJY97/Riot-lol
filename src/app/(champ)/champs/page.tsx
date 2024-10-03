@@ -2,7 +2,7 @@ import { getChamps } from "@/server-actions/champAction";
 import { Metadata } from "next";
 import React from "react";
 import ChampsController from "./components/ChampsController";
-import rift from "@/public/assets/images/rift.webp";
+import rift from "@/public/assets/images/bg/rift.webp";
 import Image from "next/image";
 
 export const metadata: Metadata = {
