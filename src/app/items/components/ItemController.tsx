@@ -38,7 +38,7 @@ const ItemController = ({ items }: Props) => {
 
   return (
     <div className="flex p-4 w-[100%] min-w-[1200px] justify-center">
-      <div className="flex flex-col justify-center p-8 w-[170px] h-[650px] text-xs">
+      <div className="flex flex-col justify-center p-8 w-[170px] h-[650px] text-xs z-50">
         <div
           onClick={() => clearItemFilter()}
           className="flex h-6 items-center gap-2 text-[#aa7d30] text-sm">
@@ -46,7 +46,7 @@ const ItemController = ({ items }: Props) => {
           <span className="">모두 지우기</span>
         </div>
 
-        <ul className="flex flex-col gap-[2px] ">
+        <ul className="flex flex-col gap-[2px] z-50 ">
           {itemFilterTags.map((tagKey, idx) => (
             <li key={idx} onClick={() => toggleItemFilter(tagKey)}>
               <div className="flex h-6 items-center gap-[2px]">
@@ -66,7 +66,7 @@ const ItemController = ({ items }: Props) => {
           ))}
         </ul>
       </div>
-      <div className="relative w-[230px] h-[650px]">
+      <div className="relative w-[230px] h-[650px] z-50">
         <div className="absolute top-[16px] flex gap-2 w-[100%] h-[30px]">
           <input
             className="h-6 w-[60%] text-black text-xs"
@@ -93,7 +93,7 @@ const ItemController = ({ items }: Props) => {
       {!selectedItem ? (
         <SkeltonInfo />
       ) : (
-        <div className="flex flex-col w-[50%] p-4 gap-2 h-[650px]">
+        <div className="flex flex-col w-[50%] p-4 gap-2 h-[650px] z-50">
           <div className="h-[20%] border-4">
             <ItemInto items={items} selectedItem={selectedItem} handleSetItem={handleSetItem} />
           </div>
@@ -110,7 +110,9 @@ const ItemController = ({ items }: Props) => {
 };
 
 const SkeltonInfo = () => {
-  return <div className="flex items-center justify-center w-[50%] p-4">아이템을 선택하세요.</div>;
+  return (
+    <div className="flex items-center justify-center w-[50%] p-4 z-50">아이템을 선택하세요.</div>
+  );
 };
 
 export default ItemController;
