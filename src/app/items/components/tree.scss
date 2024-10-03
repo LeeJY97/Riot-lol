@@ -8,8 +8,6 @@ $reverse: true;
 
 .tree {
   @if $reverse {
-    // transform: rotate(180deg);
-    // transform-origin: 50%;
   }
 }
 
@@ -61,10 +59,6 @@ $reverse: true;
   }
   &:last-child::before {
     border-right: $border-width solid #ce9d49;
-    // border-radius: 0 5px 0 0;
-  }
-  &:first-child::after {
-    // border-radius: 5px 0 0 0;
   }
 }
 
@@ -79,19 +73,13 @@ $reverse: true;
 }
 
 .tree li img {
-  // border: $border-width solid #ce9d49;
-  // padding: 0.5em 0.75em; // 이게 만악의 근원
   border: 1px solid grey;
   padding: 1px;
   text-decoration: none;
   display: inline-block;
-  // border-radius: 5px;
   color: #333;
   position: relative;
   top: $border-width;
-  // @if $reverse {
-  //   transform: rotate(180deg);
-  // }
 }
 
 .tree li img:hover,

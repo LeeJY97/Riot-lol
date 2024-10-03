@@ -39,7 +39,7 @@ export const useFilterItems = (items: (Item & ItemCustomExtend)[]) => {
       return acc;
     }, []);
 
-    const getFilterItemByTag = () => {
+    function getFilterItemByTag() {
       return items.filter((item) => {
         return filterArray.every((filterTag) => {
           if (filterTag === "Boots") {
@@ -48,20 +48,21 @@ export const useFilterItems = (items: (Item & ItemCustomExtend)[]) => {
           return item.tags.includes(filterTag);
         });
       });
-    };
-    const filterItemByTag = getFilterItemByTag();
+    }
 
-    const getFilterItemByName = () => {
+    function getFilterItemByName() {
       return filterItemByTag.filter((item) => item.name.includes(itemName));
-    };
-    const filterItemByName = getFilterItemByName();
+    }
 
-    const getSortItemByOption = () => {
+    function getSortItemByOption() {
       if (sortOption === "asc") {
         return filterItemByName.sort((a, b) => a.gold.total - b.gold.total);
       }
       return filterItemByName.sort((a, b) => b.gold.total - a.gold.total);
-    };
+    }
+
+    const filterItemByTag = getFilterItemByTag();
+    const filterItemByName = getFilterItemByName();
     const sortItemByOption = getSortItemByOption();
 
     setFilterItems(sortItemByOption);
