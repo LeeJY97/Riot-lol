@@ -1,4 +1,4 @@
-import tagMap from "@/utils/champTagMap";
+import { champTagMapKr } from "@/constant/champTags";
 import React from "react";
 
 type Props = {
@@ -22,7 +22,7 @@ const InfoSection = ({ ...info }: Props) => {
         <div className="flex items-end">
           <h1 className="text-8xl">{info.name}</h1>
           <span className="text-2xl p-2">{`(${info.tags
-            .map((tag) => tagMap[tag])
+            .map((tag) => champTagMapKr[tag])
             .join("/")})`}</span>
         </div>
         <div className="mt-4">
