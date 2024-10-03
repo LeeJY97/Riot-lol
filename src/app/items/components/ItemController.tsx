@@ -32,10 +32,6 @@ const ItemController = ({ items }: Props) => {
     setSelectedItem(item);
   };
 
-  // const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  //   setSortOption(e.target.value);
-  // };
-
   useEffect(() => {
     getFilteredAndSortedItems(filterOptions, itemName, sortOption);
   }, [filterOptions, itemName, sortOption]);

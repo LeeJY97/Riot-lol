@@ -39,7 +39,7 @@ export const useFilterItems = (items: (Item & ItemCustomExtend)[]) => {
       return acc;
     }, []);
 
-    function getFilterItemByTag() {
+    function getFilterItemByTag(items: (Item & ItemCustomExtend)[]) {
       return items.filter((item) => {
         return filterArray.every((filterTag) => {
           if (filterTag === "Boots") {
@@ -50,20 +50,20 @@ export const useFilterItems = (items: (Item & ItemCustomExtend)[]) => {
       });
     }
 
-    function getFilterItemByName() {
-      return filterItemByTag.filter((item) => item.name.includes(itemName));
+    function getFilterItemByName(items: (Item & ItemCustomExtend)[]) {
+      return items.filter((item) => item.name.includes(itemName));
     }
 
-    function getSortItemByOption() {
+    function getSortItemByOption(items: (Item & ItemCustomExtend)[]) {
       if (sortOption === "asc") {
-        return filterItemByName.sort((a, b) => a.gold.total - b.gold.total);
+        return items.sort((a, b) => a.gold.total - b.gold.total);
       }
-      return filterItemByName.sort((a, b) => b.gold.total - a.gold.total);
+      return items.sort((a, b) => b.gold.total - a.gold.total);
     }
 
-    const filterItemByTag = getFilterItemByTag();
-    const filterItemByName = getFilterItemByName();
-    const sortItemByOption = getSortItemByOption();
+    const filterItemByTag = getFilterItemByTag(items);
+    const filterItemByName = getFilterItemByName(filterItemByTag);
+    const sortItemByOption = getSortItemByOption(filterItemByName);
 
     setFilterItems(sortItemByOption);
   };
