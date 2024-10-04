@@ -18,6 +18,9 @@ const fontPretendard = localFont({
 export const metadata: Metadata = {
   title: "League of Legends",
   description: "롤 정보 확인 앱",
+  icons: {
+    icon: "/src/public/jhin2.jpg",
+  },
 };
 
 export default function RootLayout({
@@ -29,8 +32,8 @@ export default function RootLayout({
     <html lang="en" className="cursor-element">
       {/* <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#071523]`}> */}
       <body className={`bg-[#071523] text-white ${fontPretendard.className}`}>
-        <div className="fixed z-50 top-0 left-0 flex items-center gap-10 w-full h-14 text-white bg-black p-4">
-          <div className="flex justify-between w-full items-center">
+        <div className="fixed z-50 top-0 left-0 flex items-center gap-10 w-full h-14 text-white bg-black">
+          <div className="flex justify-between w-full items-center pl-12 pr-12">
             <div className="logo-container">
               <Link href="/">
                 <svg
