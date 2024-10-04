@@ -16,7 +16,7 @@ const InfoSection = ({ ...info }: Props) => {
           <img src={info.imageUrl} alt="" className="w-[100%] object-cover" />
         </div>
       </div>
-      <div className="absolute top-1/3 w-[40%] min-w-[500px] max-w-[900px] p-4">
+      <div className="absolute top-1/3 w-[100%] min-w-[500px] max-w-[900px] p-4">
         <h1 className="text-4xl font-bold text-[#C8AA6E]">{info.title}</h1>
         <div className="flex items-end">
           <h1 className="text-8xl">{info.name}</h1>
@@ -24,7 +24,7 @@ const InfoSection = ({ ...info }: Props) => {
             .map((tag) => champTagMapKr[tag])
             .join("/")})`}</span>
         </div>
-        <div className="mt-4">
+        <div className="mt-4 w-[50%]">
           <span className="text-lg">{info.lore}</span>
         </div>
       </div>

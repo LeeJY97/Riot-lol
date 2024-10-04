@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import Providers from "@/components/providers/RQProvider";
 import { Suspense } from "react";
+import logo from "@/public/assets/images/LOL.png";
 import Image from "next/image";
 
 const fontPretendard = localFont({
@@ -27,12 +28,20 @@ export default function RootLayout({
       {/* <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#071523]`}> */}
       <body className={`bg-[#071523] text-white ${fontPretendard.className}`}>
         <div className="fixed z-50 top-0 left-0 flex items-center gap-10 w-full h-14 text-white bg-black p-4">
-          <Link href="/">홈</Link>
-          <Link href="/champs" prefetch>
-            챔피언
-          </Link>
-          <Link href="/rotation">로테이션</Link>
-          <Link href="/items">아이템</Link>
+          <div className="flex justify-between w-full">
+            <div>
+              <Link href="/">
+                <Image src={logo} width={34} height={34} alt="메인 로고" />
+              </Link>
+            </div>
+            <div className="flex gap-10">
+              <Link href="/champs" prefetch>
+                챔피언
+              </Link>
+              <Link href="/rotation">로테이션</Link>
+              <Link href="/items">아이템</Link>
+            </div>
+          </div>
         </div>
         <Suspense fallback={<>... 로딩</>}>
           <Providers>

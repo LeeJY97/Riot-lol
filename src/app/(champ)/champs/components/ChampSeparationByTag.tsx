@@ -29,13 +29,15 @@ const ChampSeparationByTag = ({ champsSeparationByTag }: Props) => {
         {Object.keys(champsSeparationByTag).map((tag) => (
           <ul
             key={tag}
-            className="mb-10 pb-10 border-b-2 pt-10 pl-4 pr-4 bg-[rgba(255,255,255,.2)] rounded-xl">
+            // className="mb-10 pb-10 border-b-2 pt-10 pl-4 pr-4 bg-[rgba(255,255,255,.2)] rounded-xl">
+            className="mb-10 pb-10 border-b-2 pt-10 pl-4 pr-4 rounded-xl">
             <div className="flex flex-col justify-center items-center h-20 mb-4">
               <div className="flex gap-2">
                 <Image src={tagIconMap[tag]} alt="" width={30} height={30} />
+                {/* <h1 className="text-4xl text-[#aa7d30] font-HeirofLight">{champTagMapKr[tag]}</h1> */}
                 <h1 className="text-4xl text-[#aa7d30] font-HeirofLight">{champTagMapKr[tag]}</h1>
               </div>
-              <h1 className="text-6xl text-[#000000] ">{champsSeparationByTag[tag].length}</h1>
+              <h1 className="text-6xl text-white ">{champsSeparationByTag[tag].length}</h1>
             </div>
             <ChampGrid champs={champsSeparationByTag[tag]} />
           </ul>
