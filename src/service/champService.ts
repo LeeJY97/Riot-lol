@@ -9,6 +9,7 @@ import {
 } from "@/types/Champs";
 import Rotation from "@/types/Rotation";
 import version from "@/constant/constant";
+import { CHAMP_DEFAULT_IMAGE_BASE_URL, CHAMP_LOADING_IMAGE_BASE_URL } from "@/constant/urls";
 // import { CHAMP_TAGS, ChampTags }
 
 const initialChampList: ChampsSeparationByTag = {
@@ -41,8 +42,10 @@ const convertChampsTableToArray = (champTable: ChampTable): Champ[] => {
 
 const getChampsExtendCustomImage = (champs: Champ[]): (Champ & ChampCustomImage)[] => {
   const champsExtendCustomImage = champs.map((champ) => {
-    const loadingImage = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg`;
-    const defaultImage = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ.id}_0.jpg`;
+    // const loadingImage = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg`;
+    // const defaultImage = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ.id}_0.jpg`;
+    const loadingImage = `${CHAMP_LOADING_IMAGE_BASE_URL}/${champ.id}_0.jpg`;
+    const defaultImage = `${CHAMP_DEFAULT_IMAGE_BASE_URL}/${champ.id}_0.jpg`;
 
     return { ...champ, loadingImage, defaultImage };
   });

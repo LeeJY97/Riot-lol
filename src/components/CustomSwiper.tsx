@@ -1,6 +1,6 @@
 "use client";
 
-import { Swiper } from "swiper/react";
+import { Swiper, SwiperClass } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
@@ -13,7 +13,7 @@ import React from "react";
 type Props = {
   slidesPerView?: number | "auto";
   spaceBetween?: number;
-  handleSlideChange?: (index: number) => void;
+  handleSlideChange?: (swiper: SwiperClass) => void;
   allowTouchMove?: boolean;
   children: React.JSX.Element[];
   // children: any;
@@ -37,7 +37,7 @@ const CustomSwiper = ({
       centeredSlides={true}
       loop={true}
       autoplay={{
-        delay: 5000,
+        delay: 500000,
         disableOnInteraction: false,
       }}
       // pagination={{ clickable: true }}
