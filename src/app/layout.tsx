@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "League of Legends",
   description: "롤 정보 확인 앱",
   icons: {
-    icon: "/src/public/jhin2.jpg",
+    icon: "/logo_img.svg",
   },
 };
 
@@ -80,12 +80,16 @@ export default function RootLayout({
                 {/* <Image src={logo} width={80} height={80} alt="메인 로고" /> */}
               </Link>
             </div>
-            <div className="flex gap-10">
+            <div className="flex gap-10 ">
               <Link href="/champs" prefetch>
-                챔피언
+                <span className="nav-span">챔피언</span>
               </Link>
-              <Link href="/rotation">로테이션</Link>
-              <Link href="/items">아이템</Link>
+              <Link href="/rotation">
+                <span className="nav-span">로테이션</span>
+              </Link>
+              <Link href="/items">
+                <span className="nav-span">아이템</span>
+              </Link>
             </div>
           </div>
         </div>

@@ -133,3 +133,12 @@ button {
 .logo-container:hover {
   color: red; /* hover 시 빨간색으로 변경 */
 }
+
+.nav-span {
+  color: white; /* 기본 색상 */
+  transition: color 0.3s; /* 부드러운 전환 효과 */
+}
+
+.nav-span:hover {
+  color: red;
+}
