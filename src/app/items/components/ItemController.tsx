@@ -45,7 +45,6 @@ const ItemController = ({ items }: Props) => {
           <button>✖</button>
           <span className="">모두 지우기</span>
         </div>
-
         <ul className="flex flex-col gap-[2px] z-50 ">
           {itemFilterTags.map((tagKey, idx) => (
             <li key={idx} onClick={() => toggleItemFilter(tagKey)}>

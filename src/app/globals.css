@@ -123,3 +123,13 @@ button {
 .hover-element {
   cursor: url("../public/assets/images/cursor_hover.png"), auto; /* hover 시 커서 */
 }
+
+.logo-container {
+  display: inline-block; /* 이미지 크기 조정 */
+  color: white; /* 기본 색상 */
+  transition: color 0.3s; /* 부드러운 전환 효과 */
+}
+
+.logo-container:hover {
+  color: red; /* hover 시 빨간색으로 변경 */
+}
