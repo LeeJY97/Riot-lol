@@ -3,7 +3,7 @@
 import queryKey from "@/Queries/queryKey";
 import { getChamps } from "@/server-actions/champAction";
 import { getChampsExtendCustomImage, getChampsWithRotations } from "@/service/champService";
-import { ChampTable } from "@/types/Champs";
+import { Champ, ChampCustomImage, ChampTable } from "@/types/Champs";
 import type Rotation from "@/types/Rotation";
 import { useQuery } from "@tanstack/react-query";
 import Image, { StaticImageData } from "next/image";
@@ -15,7 +15,6 @@ import { CHAMP_DEFAULT_IMAGE_BASE_URL, CHAMP_LOADING_IMAGE_BASE_URL } from "@/co
 
 const Rotation = () => {
   const [currentBg, setCurrentBg] = useState<StaticImageData | string>(champBg);
-  const ChampRef = useRef<any>(null);
   const [currentChampId, setCurrentChampId] = useState<string>();
   const [currentChampName, setCurrentChampName] = useState<string>();
 
@@ -47,17 +46,11 @@ const Rotation = () => {
 
   const handleSlideChange = (swiper: SwiperClass) => {
     const { activeIndex, slides } = swiper;
-    console.log("swiper", swiper);
 
     if (activeIndex) {
-      // const champId = slides[activeIndex].getElementsByTagName("input")[0].value;
-      // const champId = slides[activeIndex].getElementsByTagName("input")[0].value;
-
       const { value: champId, name: champName } =
         slides[activeIndex].getElementsByTagName("input")[0];
       const defaultImage = `${CHAMP_DEFAULT_IMAGE_BASE_URL}/${champId}_0.jpg`;
-
-      console.log("loadingImage", defaultImage);
 
       setCurrentChampId(champId);
       setCurrentChampName(champName);
@@ -74,7 +67,7 @@ const Rotation = () => {
       <div className="max-w-[1200px] min-w-[990px] pt-10 rounded-xl relative z-50">
         <div className="flex flex-col justify-center items-center h-20 mt-10 mb-4">
           <div className="flex flex-col gap-2 items-center ">
-            <h1 className="text-6xl text-[#aa7d30] font-HeirofLight">로테이션 목록</h1>
+            <h1 className="text-2xl text-white">로테이션 목록</h1>
             <h1 className="text-6xl text-[#aa7d30] font-HeirofLight">{currentChampName}</h1>
           </div>
         </div>
@@ -93,20 +86,17 @@ const Rotation = () => {
                     alt=""
                     width={300}
                     height={300}
-                    // className="object-cover blur-sm"
-                    className={`object-cover ${currentChampId !== champ.id && "blur-sm"}`}
+                    // className={`object-cover ${currentChampId !== champ.id && "blur-sm"}`}
+                    className={`object-cover`}
                   />
                   {currentChampId !== champ.id && (
                     <>
-                      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
+                      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60 z-10"></div>
                       <div className="absolute w-[100%] top-1/2 flex items-center justify-center">
                         <h1 className="">{champ.name}</h1>
                       </div>
                     </>
                   )}
-                  {/* : (
-                    <h1 className="absolute top-2 left-2">{champ.name}</h1>
-                  )} */}
                 </div>
               </SwiperSlide>
             ))}
