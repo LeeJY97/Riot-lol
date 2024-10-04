@@ -11,28 +11,39 @@ import "./swiper.css";
 import React from "react";
 
 type Props = {
-  slidesPerView?: number;
+  slidesPerView?: number | "auto";
+  spaceBetween?: number;
+  handleSlideChange?: (index: number) => void;
+  allowTouchMove?: boolean;
   children: React.JSX.Element[];
   // children: any;
 };
 
-const CustomSwiper = ({ children, slidesPerView = 1 }: Props) => {
+const CustomSwiper = ({
+  children,
+  slidesPerView = 1,
+  spaceBetween = 0,
+  handleSlideChange,
+  allowTouchMove = true,
+}: Props) => {
   return (
     <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, Autoplay]}
-      spaceBetween={0}
+      spaceBetween={spaceBetween}
       slidesPerView={slidesPerView}
+      // navigation
       navigation
-      centeredSlides
+      centeredSlides={true}
       loop={true}
       autoplay={{
         delay: 5000,
         disableOnInteraction: false,
       }}
-      pagination={{ clickable: true }}
+      // pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      onSlideChange={() => {}}>
+      allowTouchMove={allowTouchMove}
+      onSlideChange={handleSlideChange}>
       {children}
     </Swiper>
   );

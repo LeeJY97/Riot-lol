@@ -36,10 +36,10 @@ export default function RootLayout({
         </div>
         <Suspense fallback={<>... 로딩</>}>
           <Providers>
-            <div className="w-[100%] flex justify-center">{children}</div>
+            <div className="w-[100%] flex justify-center mt-14">{children}</div>
           </Providers>
         </Suspense>
-        <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center hover-element">
+        <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center hover-element fixed bottom-0 left-1/2">
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
             href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"

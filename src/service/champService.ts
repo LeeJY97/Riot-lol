@@ -42,8 +42,9 @@ const convertChampsTableToArray = (champTable: ChampTable): Champ[] => {
 const getChampsExtendCustomImage = (champs: Champ[]): (Champ & ChampCustomImage)[] => {
   const champsExtendCustomImage = champs.map((champ) => {
     const loadingImage = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg`;
+    const defaultImage = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ.id}_0.jpg`;
 
-    return { ...champ, loadingImage };
+    return { ...champ, loadingImage, defaultImage };
   });
 
   return champsExtendCustomImage;
