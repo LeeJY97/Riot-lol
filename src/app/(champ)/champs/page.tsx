@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import React from "react";
 import ChampsController from "./components/ChampsController";
 import rift from "@/public/assets/images/bg/rift.webp";
+import champBg from "@/public/assets/images/bg/jhin.jpg";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -15,10 +16,10 @@ const Champs = async () => {
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full h-full">
-        <Image src={rift} alt={"dd"} layout="fill"></Image>
+      <div className="fixed top-10 left-0 w-full h-full min-w-[1220px]">
+        <Image src={champBg} alt={"dd"} layout="fill"></Image>
       </div>
-      <div className="pt-[56px]">
+      <div className="pt-[56px] max-w-[1200px] min-w-[990px]">
         <ChampsController champTable={champTable} />
       </div>
     </>

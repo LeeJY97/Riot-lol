@@ -18,7 +18,7 @@ const Items = async () => {
 
   return (
     <div className="fixed top-0 left-0 w-full h-full">
-      <Image src={rift} alt={"dd"} layout="fill" />
+      <Image src={rift} alt={"dd"} layout="fill" className="opacity-40" />
       <div className="pt-[56px]">
         <ItemController items={itemsCustomExtend} />;
       </div>

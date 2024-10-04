@@ -21,7 +21,8 @@ const ChampsController = ({ champTable }: Props) => {
   const [viewOption, setViewOption] = useState("all");
 
   return (
-    <div className="flex flex-col gap-2 justify-end max-w-[1440px] min-w-[990px] p-4 relative">
+    // <div className="flex flex-col gap-2 justify-end max-w-[1200px] min-w-[990px] p-4 relative">
+    <div className="flex flex-col gap-2 justify-end p-4 relative">
       <div className="flex flex-col gap-10 w-[15%]">
         <select
           className="h-6 w-[100%] text-black"
