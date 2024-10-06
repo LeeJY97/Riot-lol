@@ -23,7 +23,7 @@ const ChampsController = ({ champTable }: Props) => {
   return (
     // <div className="flex flex-col gap-2 justify-end max-w-[1200px] min-w-[990px] p-4 relative">
     <div className="flex flex-col gap-2 justify-end p-4 relative">
-      <div className="flex flex-col gap-10 w-[15%]">
+      <div className="flex flex-col gap-10 w-[15%] pl-4">
         <select
           className="h-6 w-[100%] text-black"
           value={viewOption}
@@ -41,7 +41,9 @@ const ChampsController = ({ champTable }: Props) => {
           <div className="mb-10 pb-10 border-b-2 pt-10 pl-4 pr-4 rounded-xl">
             <div className="flex flex-col justify-center items-center h-20 mb-4">
               {/* <h1 className="text-6xl text-[#aa7d30]">전체 챔피언 목록</h1> */}
-              <h1 className="text-6xl text-white">전체 챔피언 목록</h1>
+              <h1 className="text-4xl font-HeirofLight font-bold text-subColor mb-8 ">
+                전체 챔피언 목록
+              </h1>
             </div>
             <ChampGrid champs={champsExtendCustomImage} />
           </div>

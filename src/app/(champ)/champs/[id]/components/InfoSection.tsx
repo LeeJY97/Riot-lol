@@ -17,14 +17,14 @@ const InfoSection = ({ ...info }: Props) => {
         </div>
       </div>
       <div className="absolute top-1/3 w-[100%] min-w-[500px] max-w-[900px] p-4">
-        <h1 className="text-4xl font-bold text-[#C8AA6E]">{info.title}</h1>
+        <h1 className="text-4xl font-bold text-[#C8AA6E] font-HeirofLight italic">{info.title}</h1>
         <div className="flex items-end">
-          <h1 className="text-8xl">{info.name}</h1>
+          <h1 className="text-8xl font-HeirofLight">{info.name}</h1>
           <span className="text-2xl p-2">{`(${info.tags
             .map((tag) => champTagMapKr[tag])
             .join("/")})`}</span>
         </div>
-        <div className="mt-4 w-[50%]">
+        <div className="mt-4 w-[70%]">
           <span className="text-lg">{info.lore}</span>
         </div>
       </div>

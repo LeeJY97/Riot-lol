@@ -16,13 +16,14 @@ const ItemInto = ({ items, selectedItem, handleSetItem }: Props) => {
   const filterItems = items.filter((item) => filterIds.includes(item.id));
 
   return (
-    <div className="p-2">
+    // 배경 색 조금 투명하게해서 주기
+    <div className="p-2 ">
       <h3 className="text-sm">상위 아이템</h3>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap gap-2 ">
         {filterItems.map((item) => (
           <div
             key={item.id}
-            className="hover-element border-[1px] border-[#3C3C41] h-[36px] p-[1px]"
+            className="hover-element border-[1px] border-[#3C3C41] h-[37px] p-[1px]"
             onClick={() => handleSetItem(item)}>
             <Image src={item.defaultImage} alt={item.name} width={34} height={34} />
             {/* <span className="text-[0.6rem]">{item.gold.total}</span> */}

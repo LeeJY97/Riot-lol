@@ -67,8 +67,10 @@ const Rotation = () => {
       <div className="max-w-[1200px] min-w-[990px] pt-10 rounded-xl relative z-50">
         <div className="flex flex-col justify-center items-center h-20 mt-10 mb-4">
           <div className="flex flex-col gap-2 items-center ">
-            <h1 className="text-2xl text-white">로테이션 목록</h1>
-            <h1 className="text-6xl text-[#aa7d30] font-HeirofLight">{currentChampName}</h1>
+            <h1 className="text-2xl text-[]">로테이션 목록</h1>
+            <h1 className="text-6xl text-[#aa7d30] font-HeirofLight font-bold">
+              {currentChampName}
+            </h1>
           </div>
         </div>
         <div className="w-[1200px] flex items-center mx-auto mt-14">
@@ -79,7 +81,7 @@ const Rotation = () => {
             allowTouchMove={false}>
             {champsExtendCustomImage.map((champ) => (
               <SwiperSlide key={champ.id} style={{ width: "500px" }}>
-                <div className="relative">
+                <div className={`relative `}>
                   <input type="hidden" id="defaultImage" value={champ.id} name={champ.name} />
                   <Image
                     src={champ.loadingImage}
@@ -91,9 +93,9 @@ const Rotation = () => {
                   />
                   {currentChampId !== champ.id && (
                     <>
-                      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60 z-10"></div>
+                      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-70 z-10"></div>
                       <div className="absolute w-[100%] top-1/2 flex items-center justify-center">
-                        <h1 className="">{champ.name}</h1>
+                        <h1 className="absolute z-50 text-subColor2">{champ.name}</h1>
                       </div>
                     </>
                   )}
