@@ -2,8 +2,7 @@ import { getChamps } from "@/server-actions/champAction";
 import { Metadata } from "next";
 import React from "react";
 import ChampsController from "./components/ChampsController";
-import rift from "@/public/assets/images/bg/rift.webp";
-import champBg from "@/public/assets/images/bg/jhin.jpg";
+import bg from "@/public/assets/images/bg/jhin.jpg";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -17,32 +16,12 @@ const Champs = async () => {
   return (
     <>
       <div className="fixed top-10 left-0 w-full h-full min-w-[1220px]">
-        <Image src={champBg} alt={"dd"} layout="fill"></Image>
+        <Image src={bg} alt={"dd"} layout="fill"></Image>
       </div>
       <div className="pt-[56px] max-w-[1200px] min-w-[990px]">
         <ChampsController champTable={champTable} />
       </div>
     </>
-    // <div className="flex justify-end max-w-[1440px] min-w-[990px] p-4 relative">
-    //   <div className="absolute right-4 flex flex-col gap-10 w-[15%]">
-    //     <select
-    //       className="h-6 w-[100%] text-black"
-    //       // value={sortOption}
-    //       // onChange={(e) => setSortOption(e.target.value)}
-    //     >
-    //       <option value="asc">전체</option>
-    //       <option value="desc">역할군</option>
-    //     </select>
-    //   </div>
-    //   {viewOption === "tag" ? (
-    //     <ChampSeparationByTag champsSeparationByTag={champsSeparationByTag}></ChampSeparationByTag>
-    //   ) : (
-    //     <>
-    //       <h1>전체 챔피언 목록</h1>
-    //       <ChampGrid champs={champsExtendCustomImage} />
-    //     </>
-    //   )}
-    // </div>
   );
 };
 
