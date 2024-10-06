@@ -16,12 +16,16 @@ export default function Home() {
   return (
     // <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
     <div className="fixed top-0 left-0 w-full h-svh min-w-[1220px] min-h-[685px]">
-      <div className="absolute top-[15%] flex justify-center items-center gap-10 w-full h-[120px] z-50 text-4xl text-black">
-        <div className="flex justify-center items-center bg-subColor2 bg-opacity-80 p-2 w-[200px] rounded-sm">
-          <button className="">blog</button>
+      <div className="absolute top-[15%] flex justify-center items-center gap-10 w-full h-[120px] z-50 text-4xl text-subColor">
+        <div className="flex justify-center items-center bg-black bg-opacity-60 p-2 w-[200px] rounded-sm">
+          <a href="https://reactjy2.tistory.com" target="_blank">
+            블로그
+          </a>
         </div>
-        <div className="flex justify-center items-center bg-subColor2 bg-opacity-80 p-2 w-[200px] rounded-sm">
-          <button>github</button>
+        <div className="flex justify-center items-center bg-black bg-opacity-80 p-2 w-[200px] rounded-sm">
+          <a href="https://www.github.com/LeeJY97" target="_blank">
+            깃허브
+          </a>
         </div>
         {/* <span className="hover-element hover">기술블로그</span>
         <span className="hover-element">깃허브</span> */}
