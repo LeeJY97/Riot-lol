@@ -18,6 +18,7 @@ const config: Config = {
         mainColor: "#aa7d30 ", // 약간 금색
         subColor: "#d6d6d6", // 아주 조금 어두운 흰색
         subColor2: "#c9c9c9", // 조금 어두운 흰색
+        itemBorder: "#3C3C41", // 아이템 보더
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",

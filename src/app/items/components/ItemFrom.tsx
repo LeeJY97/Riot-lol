@@ -3,6 +3,7 @@ import { Item, ItemCustomExtend, ItemTable } from "@/types/Item";
 import React from "react";
 import "./tree.scss";
 import ItemTreeChart from "./ItemTreeChart";
+import Image from "next/image";
 
 type Props = {
   items: (Item & ItemCustomExtend)[];
@@ -14,15 +15,30 @@ type NestedItemFromTree = {
   [key: string]: NestedItemFromTree | null;
 };
 
+const SelfItem = ({ selfItem }) => {
+  return (
+    <div className="flex items-center justify-center h-[250px]">
+      <div className="w-[75px] h-[75px] border-[1px] border-white p-[1px]">
+        <Image
+          src={`https://ddragon.leagueoflegends.com/cdn/14.19.1/img/item/${selfItem.id}.png`}
+          width={100}
+          height={100}
+          alt={selfItem.name}
+        />
+      </div>
+    </div>
+  );
+};
+
 const ItemFrom = ({ items, selectedItem, handleSetItem }: Props) => {
   if (!selectedItem.from) {
-    return <div>하위 아이템이 없습니다.</div>;
+    return <SelfItem selfItem={selectedItem} />;
   }
-  const itemTable = convertArrayToItemTable(items);
 
+  const itemTable = convertArrayToItemTable(items);
   const itemFromTree = buildItemHierarchy(selectedItem.id, itemTable);
   return (
-    <div className="">
+    <div className="h-[250px]">
       <ItemTreeChart
         tree={{ [selectedItem.id]: itemFromTree }}
         itemTable={itemTable}

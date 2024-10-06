@@ -85,23 +85,20 @@ const ItemController = ({ items }: Props) => {
         {/* <div className="mt-8 overflow-y-auto h-[600px]">
           <ItemGrid items={filterItems} handleSetItem={handleSetItem} />
         </div> */}
-        <ScrollArea className="mt-14 h-[565px] w-[100%] rounded-md border-2 border-[#aa7d30] p-4">
+        <ScrollArea className="mt-14 h-[560px] w-[100%] rounded-md border-2 border-[#aa7d30] p-4">
           <ItemGrid items={filterAndSortItems} handleSetItem={handleSetItem} />
         </ScrollArea>
       </div>
       {!selectedItem ? (
         <SkeltonInfo />
       ) : (
-        <div className="flex flex-col w-[50%] p-4 gap-2 h-[650px] z-50">
-          <div className="h-[20%] border-4">
+        // <div className="flex flex-col w-[50%] p-4 gap-2 h-[560px] mt-10 z-50">
+        <div className="flex flex-col w-[40%] p-4 gap-2 mt-10 z-50">
+          <div className="border-mainColor border-2 flex flex-col">
             <ItemInto items={items} selectedItem={selectedItem} handleSetItem={handleSetItem} />
-          </div>
-          <div className="h-[40%] border-4">
             <ItemFrom items={items} selectedItem={selectedItem} handleSetItem={handleSetItem} />
           </div>
-          <div className="h-[35%]">
-            <ItemInfo selectedItem={selectedItem} />
-          </div>
+          <ItemInfo selectedItem={selectedItem} />
         </div>
       )}
     </div>
