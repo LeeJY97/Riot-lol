@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 리그 오브 레전드 도감
 
-## Getting Started
+---
 
-First, run the development server:
+## 👨‍🏫 프로젝트 소개
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Riot API를 리그 오브 레전드 게임의 도감(정보)을 확인할 수 있는 사이트
+
+- **배포링크**: https://riot-lol-vert.vercel.app/
+
+---
+
+## 🚩 프로젝트 개요
+
+- **프로젝트명**: 리그 오브 레전드 도감
+- **진행 기간**: 24. 09. 30 ~ 24. 10. 07
+
+---
+
+## 🗂️ 구현 기능
+
+**페이지**
+
+- 홈(메인)
+- 챔피언 목록
+- 챔피언 상세
+- 로테이션 목록
+- 아이템 목록
+
+**페이지 별 기능**
+
+- 챔피언 목록
+  - 전체 챔피언 목록 조회
+  - 역할군 별 챔피언 목록 조회
+- 챔피언 상세
+  - 챔피언 배경 정보 조회
+  - 스킬 정보 조회
+  - 스킨 정보 조회
+- 로테이션 목록
+  - 금주의 로테이션 챔피언 조회
+- 아이템 목록
+  - 전체 아이템 목록 조회
+  - 태그(능력치)별 목록 필터
+  - 아이템 이름 별 목록 필터
+  - 가격 순 정렬
+  - 아이템 선택
+    - 상위 아이템 조회
+    - 하위 아이템 조회
+    - 상세 정보 조회
+
+---
+
+## 📚 사용 기술
+
+### Next
+
+- SEO와 데이터 캐싱을 최적화할 수 있습니다.
+- Next에서 사용가능한 4가지 렌더링 기법 (ISR, SSG, SSR, CSR)을 이해하고 사용할 수 있습니다.
+- 서비스 로직과 커스텀 훅을 분리하여 컴포넌트의 역할을 명확히 구분했습니다.
+
+### TypeScript
+
+- 데이터 타입을 정의할 수 있습니다.
+- 유틸리티 타입을 사용할 수 있습니다.
+
+### 기타
+
+`swiper`, `tailwind`
+
+---
+
+## 📚 프로젝트 구조
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📦src
+ ┣ 📂app
+ ┃ ┣ 📂(champ)
+ ┃ ┃ ┣ 📂champs
+ ┃ ┃ ┃ ┣ 📂[id]
+ ┃ ┃ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┗ 📂rotation
+ ┃ ┣ 📂api
+ ┃ ┃ ┗ 📂rotation
+ ┃ ┣ 📂items
+ ┃ ┃ ┣ 📂components
+ ┣ 📂components
+ ┃ ┣ 📂providers
+ ┃ ┣ 📂ui
+ ┣ 📂constant
+ ┣ 📂hooks
+ ┃ ┗ 📂items
+ ┣ 📂lib
+ ┣ 📂Queries
+ ┣ 📂server-actions
+ ┣ 📂service
+ ┣ 📂types
+```
