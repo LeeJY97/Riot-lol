@@ -3,15 +3,15 @@
 import queryKey from "@/Queries/queryKey";
 import { getChamps } from "@/server-actions/champAction";
 import { getChampsExtendCustomImage, getChampsWithRotations } from "@/service/champService";
-import { Champ, ChampCustomImage, ChampTable } from "@/types/Champs";
+import { ChampTable } from "@/types/Champs";
 import type Rotation from "@/types/Rotation";
 import { useQuery } from "@tanstack/react-query";
-import Image, { StaticImageData } from "next/image";
+// import Image, { StaticImageData } from "next/image";
 // import champBg from "@/public/assets/images/bg/jhin.jpg";
 import CustomSwiper from "@/components/CustomSwiper";
 import { SwiperClass, SwiperSlide } from "swiper/react";
-import { useRef, useState } from "react";
-import { CHAMP_DEFAULT_IMAGE_BASE_URL, CHAMP_LOADING_IMAGE_BASE_URL } from "@/constant/urls";
+import { useState } from "react";
+import { CHAMP_DEFAULT_IMAGE_BASE_URL } from "@/constant/urls";
 
 const Rotation = () => {
   // const [currentBg, setCurrentBg] = useState<StaticImageData | string>(champBg);
@@ -67,7 +67,7 @@ const Rotation = () => {
         <div className="relative w-full h-full">
           <img
             src={currentBg}
-            alt="dd"
+            alt={`${currentChampName} 배경 이미지`}
             className="absolute top-0 left-0 w-full h-full object-cover"
           />
         </div>

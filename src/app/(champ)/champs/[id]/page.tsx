@@ -8,6 +8,7 @@ import InfoSection from "./components/InfoSection";
 import { convertDetailPageInfos } from "@/service/champService";
 import Image from "next/image";
 import bg from "@/public/assets/images/bg/jhin2.jpg";
+import rift from "@/public/assets/images/bg/rift.webp";
 
 type Props = {
   params: {
@@ -32,11 +33,11 @@ const ChampDetail = async ({ params }: Props) => {
   const { info, skillsInfo, skinsInfo } = convertDetailPageInfos(champ);
 
   return (
-    <div className="flex flex-col w-[full] max-w-[1440px] gap-10 mx-auto">
+    <div className="flex flex-col w-[full] max-w-[1440px] gap-10 mx-auto relative">
       {/* 페이지 전체에 배경 넣기 */}
-      <div className="fixed left-0 top-0 w-svw h-svh -z-50">
-        <Image src={info.imageUrl} alt={"메인 배경사진"} layout="fill"></Image>
-      </div>
+      {/* <div className="fixed left-0 top-0 w-svw h-svh -z-50">
+        <Image src={info.imageUrl} alt={"메인 배경사진"} layout="fill" className="-z-50"></Image>
+      </div> */}
       <InfoSection {...info} />
       <SkillSection skills={skillsInfo} />
       <SkinSection skins={skinsInfo} />
