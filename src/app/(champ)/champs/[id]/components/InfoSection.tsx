@@ -1,5 +1,4 @@
 import { champTagMapKr } from "@/types/Champs";
-import Image from "next/image";
 import React from "react";
 type Props = {
   imageUrl: string;
@@ -11,20 +10,13 @@ type Props = {
 
 const InfoSection = ({ ...info }: Props) => {
   return (
-    <section className="w-full relative">
-      <div className="flex justify-center">
-        <div className="w-full min-w-[1200px] max-w-[1920px] opacity-50 ">
-          {/*  TODO Image로 변경 */}
-          <Image
-            src={info.imageUrl}
-            width={1920}
-            height={1080}
-            alt="챔피언 기본 스킨"
-            className="w-full object-cover"
-          />
+    <main className="w-[100%] relative">
+      <section className="flex justify-center">
+        <div className="w-[100%] min-w-[1200px] max-w-[1920px] opacity-50 ">
+          <img src={info.imageUrl} alt="" className="w-[100%] object-cover" />
         </div>
-      </div>
-      <div className="absolute top-1/3 w-full min-w-[500px] max-w-[900px] p-4">
+      </section>
+      <section className="absolute top-1/3 w-[100%] min-w-[500px] max-w-[900px] p-4">
         <h1 className="text-4xl font-bold text-[#C8AA6E] font-HeirofLight italic">{info.title}</h1>
         <div className="flex items-end">
           <h1 className="text-8xl font-HeirofLight">{info.name}</h1>
@@ -35,8 +27,8 @@ const InfoSection = ({ ...info }: Props) => {
         <div className="mt-4 w-[70%]">
           <span className="text-lg">{info.lore}</span>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

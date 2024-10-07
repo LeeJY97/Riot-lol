@@ -6,6 +6,8 @@ import SkinSection from "./components/SkinSection";
 import SkillSection from "./components/SkillSection";
 import InfoSection from "./components/InfoSection";
 import { convertDetailPageInfos } from "@/service/champService";
+import Image from "next/image";
+import bg from "@/public/assets/images/bg/jhin2.jpg";
 
 type Props = {
   params: {
@@ -32,9 +34,12 @@ const ChampDetail = async ({ params }: Props) => {
   return (
     <div className="flex flex-col w-[full] max-w-[1440px] gap-10 mx-auto">
       {/* 페이지 전체에 배경 넣기 */}
+      <div className="fixed left-0 top-0 w-svw h-svh -z-50">
+        <Image src={info.imageUrl} alt={"메인 배경사진"} layout="fill"></Image>
+      </div>
+      {/* <div className="z-50"> */}
       <InfoSection {...info} />
       <SkillSection skills={skillsInfo} />
-      {/* <div className="max-w-[1200px] mx-auto"> */}
       <SkinSection skins={skinsInfo} />
       {/* </div> */}
     </div>

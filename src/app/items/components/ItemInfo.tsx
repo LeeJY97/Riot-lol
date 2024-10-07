@@ -16,7 +16,6 @@ const ItemInfo = ({ selectedItem }: Props) => {
     return "mainColor";
   };
   const borderColor = getBorderColor();
-  console.log("selectedItem.customDescription.passive", selectedItem.customDescription.passive);
   const description =
     selectedItem.customDescription.passive.length > 0
       ? selectedItem.customDescription.passive

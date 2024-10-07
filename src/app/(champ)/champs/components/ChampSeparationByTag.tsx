@@ -13,14 +13,14 @@ type Props = {
   champsSeparationByTag: ChampsSeparationByTag;
 };
 
-// const tagIconMap = {
-//   Fighter: Fighter,
-//   Tank: Tank,
-//   Assassin: Assassin,
-//   Mage: Mage,
-//   Marksman: Marksman,
-//   Support: Support,
-// };
+const tagIconMap = {
+  Fighter: Fighter,
+  Tank: Tank,
+  Assassin: Assassin,
+  Mage: Mage,
+  Marksman: Marksman,
+  Support: Support,
+};
 
 const ChampSeparationByTag = ({ champsSeparationByTag }: Props) => {
   return (
@@ -36,7 +36,7 @@ const ChampSeparationByTag = ({ champsSeparationByTag }: Props) => {
             <div className="flex flex-col justify-center items-center h-20 mb-4">
               <div className="flex gap-2">
                 <Image
-                  src={CHAMP_TAGS[tag]}
+                  src={tagIconMap[tag]}
                   alt={`${champTagMapKr[tag]} 아이콘`}
                   width={30}
                   height={30}
