@@ -42,9 +42,9 @@ export const useFilterItems = (items: (Item & ItemCustomExtend)[]) => {
     function getFilterItemByTag(items: (Item & ItemCustomExtend)[]) {
       return items.filter((item) => {
         return filterArray.every((filterTag) => {
-          if (filterTag === "Boots") {
+          if (filterTag === ITEM_TAGS.Boots) {
             // 하드코딩
-            return item.tags.includes(filterTag) || item.tags.includes("NonbootsMovement");
+            return item.tags.includes(filterTag) || item.tags.includes(ITEM_TAGS.NonbootsMovement);
           }
           return item.tags.includes(filterTag);
         });
