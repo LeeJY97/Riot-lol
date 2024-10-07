@@ -39,9 +39,9 @@ const Rotation = () => {
     staleTime: 0,
   });
 
-  if (isRotationKeysPending || isChampTablePending) {
-    return <></>;
-  }
+  // if (isRotationKeysPending || isChampTablePending) {
+  //   return <></>;
+  // }
 
   const rotationChamps = getChampsWithRotations(rotationKeys, champTable);
   const champsExtendCustomImage = getChampsExtendCustomImage(rotationChamps);
@@ -52,8 +52,6 @@ const Rotation = () => {
     if (activeIndex) {
       const { value: champId, name: champName } =
         slides[activeIndex].getElementsByTagName("input")[0];
-      // 이미지 주는 함수 만들기
-      // const defaultImage = `${CHAMP_DEFAULT_IMAGE_BASE_URL}/${champId}_0.jpg`;
       const defaultImage = getDefaultImage(champId);
 
       setCurrentChampId(champId);
