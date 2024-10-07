@@ -43,6 +43,7 @@ export const useFilterItems = (items: (Item & ItemCustomExtend)[]) => {
       return items.filter((item) => {
         return filterArray.every((filterTag) => {
           if (filterTag === "Boots") {
+            // 하드코딩
             return item.tags.includes(filterTag) || item.tags.includes("NonbootsMovement");
           }
           return item.tags.includes(filterTag);

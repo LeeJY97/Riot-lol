@@ -12,7 +12,7 @@ type Props = {
 
 const SkinSection = ({ skins }: Props) => {
   return (
-    <div className="w-[100%]">
+    <div className="w-full">
       <div className="flex flex-col">
         <h1 className="text-4xl mb-4">스킨 목록</h1>
         <div>

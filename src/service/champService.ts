@@ -34,6 +34,7 @@ const separationChampsByTag = (champs: (Champ & ChampCustomImage)[]) => {
   return champsSeparationByTag;
 };
 
+// 챔피언 유틸 정도
 const convertChampsTableToArray = (champTable: ChampTable): Champ[] => {
   return Object.values(champTable).sort((a, b) => {
     return a.name.localeCompare(b.name, "ko");

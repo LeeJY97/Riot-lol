@@ -7,12 +7,12 @@ type Props = {
 
 const SkillSection = ({ skills }: Props) => {
   return (
-    <div className="flex justify-between w-[100%]">
+    <div className="flex justify-between w-full">
       {skills.map((skill) => (
         <div key={skill.id} className="w-[18%] border-[#7F602A] border-2 p-4">
           <div className="flex flex-col gap-4 h-[100%]">
-            <div className="flex gap-2">
-              <img src={skill.url} alt="" />
+            <div className="flex gap-2 shadow-custom-white">
+              <img src={skill.url} alt={`${skill.name}의 이미지`} />
             </div>
             <div className="flex gap-2 text-lg">
               <h2>{skill.name}</h2>

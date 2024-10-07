@@ -9,7 +9,7 @@ type Props = {
 const ChampGrid = ({ champs }: Props) => {
   return (
     // {/* <div className="grid grid-cols-5 gap-4 w-[100%]"> */}
-    <div className="flex flex-wrap gap-4 w-[100%]">
+    <div className="flex flex-wrap gap-4 w-full">
       {champs.map((champ) => (
         <ChampCard key={champ.id} champ={champ} />
       ))}

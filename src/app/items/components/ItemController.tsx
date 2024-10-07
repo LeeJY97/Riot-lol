@@ -26,6 +26,7 @@ const ItemController = ({ items }: Props) => {
   const { filterOptions, toggleItemFilter, clearItemFilter } = useFilterOptions();
   const { filterAndSortItems, handleFilterAndSortItems } = useFilterItems(items);
   const { itemName, handleChangeItemName } = useSearchByItemName();
+  // 이것도 하드코딩 말고, asc, desc만들어올 수 있또록 타입 지정 (모든 string 불가)
   const [sortOption, setSortOption] = useState("asc");
 
   const handleSetItem = (item: Item & ItemCustomExtend) => {
@@ -37,7 +38,7 @@ const ItemController = ({ items }: Props) => {
   }, [filterOptions, itemName, sortOption]);
 
   return (
-    <div className="flex p-4 w-[100%] min-w-[1200px] justify-center">
+    <div className="flex p-4 w-full min-w-[1200px] justify-center">
       <div className="flex flex-col justify-center p-8 w-[170px] h-[650px] text-xs z-50">
         <div
           onClick={() => clearItemFilter()}
@@ -66,7 +67,7 @@ const ItemController = ({ items }: Props) => {
         </ul>
       </div>
       <div className="relative w-[230px] h-[650px] z-50">
-        <div className="absolute top-[16px] flex gap-2 w-[100%] h-[30px]">
+        <div className="absolute top-[16px] flex gap-2 w-full h-[30px]">
           <input
             className="h-6 w-[60%] text-black text-xs"
             type="text"
@@ -85,7 +86,7 @@ const ItemController = ({ items }: Props) => {
         {/* <div className="mt-8 overflow-y-auto h-[600px]">
           <ItemGrid items={filterItems} handleSetItem={handleSetItem} />
         </div> */}
-        <ScrollArea className="mt-14 h-[560px] w-[100%] rounded-md border-2 border-[#aa7d30] p-4">
+        <ScrollArea className="mt-14 h-[560px] w-full rounded-md border-2 border-[#aa7d30] p-4">
           <ItemGrid items={filterAndSortItems} handleSetItem={handleSetItem} />
         </ScrollArea>
       </div>

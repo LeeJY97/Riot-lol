@@ -12,6 +12,10 @@ const config: Config = {
       HeirofLight: ["HeirofLight"],
     },
     extend: {
+      boxShadow: {
+        custom: "0.5px 0.5px 10px rgba(0, 0, 0, 0.8)",
+        "custom-white": "0.5px 0.5px 10px rgba(255, 255, 255, 0.8)",
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

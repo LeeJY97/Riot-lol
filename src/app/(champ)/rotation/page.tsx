@@ -50,6 +50,7 @@ const Rotation = () => {
     if (activeIndex) {
       const { value: champId, name: champName } =
         slides[activeIndex].getElementsByTagName("input")[0];
+      // 이미지 주는 함수 만들기
       const defaultImage = `${CHAMP_DEFAULT_IMAGE_BASE_URL}/${champId}_0.jpg`;
 
       setCurrentChampId(champId);
@@ -94,7 +95,7 @@ const Rotation = () => {
                   {currentChampId !== champ.id && (
                     <>
                       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-70 z-10"></div>
-                      <div className="absolute w-[100%] top-1/2 flex items-center justify-center">
+                      <div className="absolute w-full top-1/2 flex items-center justify-center">
                         <h1 className="absolute z-50 text-subColor2">{champ.name}</h1>
                       </div>
                     </>

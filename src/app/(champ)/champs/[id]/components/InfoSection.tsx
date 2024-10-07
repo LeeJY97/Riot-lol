@@ -10,13 +10,14 @@ type Props = {
 
 const InfoSection = ({ ...info }: Props) => {
   return (
-    <section className="w-[100%] relative">
+    <section className="w-full relative">
       <div className="flex justify-center">
-        <div className="w-[100%] min-w-[1200px] max-w-[1920px] opacity-50 ">
-          <img src={info.imageUrl} alt="" className="w-[100%] object-cover" />
+        <div className="w-full min-w-[1200px] max-w-[1920px] opacity-50 ">
+          {/*  TODO Image로 변경 */}
+          <img src={info.imageUrl} alt="" className="w-full object-cover" />
         </div>
       </div>
-      <div className="absolute top-1/3 w-[100%] min-w-[500px] max-w-[900px] p-4">
+      <div className="absolute top-1/3 w-full min-w-[500px] max-w-[900px] p-4">
         <h1 className="text-4xl font-bold text-[#C8AA6E] font-HeirofLight italic">{info.title}</h1>
         <div className="flex items-end">
           <h1 className="text-8xl font-HeirofLight">{info.name}</h1>

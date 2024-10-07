@@ -95,7 +95,7 @@ export default function RootLayout({
         </div>
         <Suspense fallback={<>... 로딩</>}>
           <Providers>
-            <div className="w-[100%] flex justify-center mt-14">{children}</div>
+            <div className="w-full flex justify-center mt-14">{children}</div>
           </Providers>
         </Suspense>
       </body>

@@ -31,7 +31,7 @@ const ChampDetail = async ({ params }: Props) => {
 
   return (
     <div className="flex flex-col max-w-[1920px] gap-10 mx-auto">
-      <div className="w-[100%]">
+      <div className="w-full">
         <InfoSection {...info} />
       </div>
       <div className="max-w-[1200px] min-w-[1200px] mx-auto">

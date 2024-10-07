@@ -35,9 +35,9 @@ export type ChampImage = {
 };
 
 export type ChampCustomImage = {
-  defaultImage?: string;
+  defaultImage: string;
+  loadingImage: string;
   skins?: Skin[];
-  loadingImage?: string;
 };
 
 export type ChampInfo = {

@@ -25,7 +25,7 @@ const ChampsController = ({ champTable }: Props) => {
     <div className="flex flex-col gap-2 justify-end p-4 relative">
       <div className="flex flex-col gap-10 w-[15%] pl-4">
         <select
-          className="h-6 w-[100%] text-black"
+          className="h-6 w-full text-black"
           value={viewOption}
           onChange={(e) => setViewOption(e.target.value)}>
           <option value="all">전체</option>
