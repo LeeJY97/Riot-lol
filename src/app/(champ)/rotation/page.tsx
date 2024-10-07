@@ -12,6 +12,7 @@ import CustomSwiper from "@/components/CustomSwiper";
 import { SwiperClass, SwiperSlide } from "swiper/react";
 import { useState } from "react";
 import { CHAMP_DEFAULT_IMAGE_BASE_URL } from "@/constant/urls";
+import { getDefaultImage } from "@/utils/champion";
 
 const Rotation = () => {
   // const [currentBg, setCurrentBg] = useState<StaticImageData | string>(champBg);
@@ -52,7 +53,8 @@ const Rotation = () => {
       const { value: champId, name: champName } =
         slides[activeIndex].getElementsByTagName("input")[0];
       // 이미지 주는 함수 만들기
-      const defaultImage = `${CHAMP_DEFAULT_IMAGE_BASE_URL}/${champId}_0.jpg`;
+      // const defaultImage = `${CHAMP_DEFAULT_IMAGE_BASE_URL}/${champId}_0.jpg`;
+      const defaultImage = getDefaultImage(champId);
 
       setCurrentChampId(champId);
       setCurrentChampName(champName);
