@@ -3,13 +3,38 @@ import Image from "next/image";
 import Link from "next/link";
 // import rift from "@/public/assets/images/bg/rift.webp";
 import bg from "@/public/assets/images/bg/jhin2.jpg";
+import { QueryClient } from "@tanstack/react-query";
+import queryKey from "@/Queries/queryKey";
+import { getChamps } from "@/server-actions/champAction";
 
 export const metadata: Metadata = {
   title: "롤 정보 사이트",
   description: "리그 오브 레전드 정보 사이트",
 };
 
-export default function Home() {
+export default async function Home() {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 1 * 1000,
+      },
+    },
+  });
+
+  await queryClient.prefetchQuery({
+    queryKey: queryKey.champ.champs,
+    queryFn: () => getChamps(),
+  });
+
+  await queryClient.prefetchQuery({
+    queryKey: queryKey.rotation.rotationKeys,
+    queryFn: async () => {
+      const rotationRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/rotation`);
+      const rotationKeys = await rotationRes.json();
+      return rotationKeys;
+    },
+  });
+
   return (
     // <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
     <div className="fixed top-0 left-0 w-full h-svh min-w-[1220px] min-h-[685px]">
