@@ -3,9 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 // import rift from "@/public/assets/images/bg/rift.webp";
 import bg from "@/public/assets/images/bg/jhin2.jpg";
-import champBg from "@/public/assets/images/bg/jhin.jpg";
-import github from "@/public/assets/images/github.png";
-import blog from "@/public/assets/images/blog.png";
 
 export const metadata: Metadata = {
   title: "롤 정보 사이트",

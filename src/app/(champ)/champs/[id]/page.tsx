@@ -37,11 +37,9 @@ const ChampDetail = async ({ params }: Props) => {
       <div className="fixed left-0 top-0 w-svw h-svh -z-50">
         <Image src={info.imageUrl} alt={"메인 배경사진"} layout="fill"></Image>
       </div>
-      {/* <div className="z-50"> */}
       <InfoSection {...info} />
       <SkillSection skills={skillsInfo} />
       <SkinSection skins={skinsInfo} />
-      {/* </div> */}
     </div>
   );
 };

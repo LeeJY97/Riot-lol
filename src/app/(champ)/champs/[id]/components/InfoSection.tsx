@@ -1,4 +1,5 @@
 import { champTagMapKr } from "@/types/Champs";
+import Image from "next/image";
 import React from "react";
 type Props = {
   imageUrl: string;
@@ -13,7 +14,7 @@ const InfoSection = ({ ...info }: Props) => {
     <main className="w-[100%] relative">
       <section className="flex justify-center">
         <div className="w-[100%] min-w-[1200px] max-w-[1920px] opacity-50 ">
-          <img src={info.imageUrl} alt="" className="w-[100%] object-cover" />
+          <Image src={info.imageUrl} alt="" className="w-[100%] object-cover" />
         </div>
       </section>
       <section className="absolute top-1/3 w-[100%] min-w-[500px] max-w-[900px] p-4">
