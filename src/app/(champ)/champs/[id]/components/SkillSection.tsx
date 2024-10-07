@@ -1,5 +1,6 @@
 import React from "react";
 import { SkillInfo } from "@/types/Champs";
+import Image from "next/image";
 
 type Props = {
   skills: SkillInfo[];
@@ -12,8 +13,8 @@ const SkillSection = ({ skills }: Props) => {
       {skills.map((skill) => (
         <div key={skill.id} className="w-[18%] border-[#7F602A] border-2 p-4">
           <div className="flex flex-col gap-4 h-[100%]">
-            <div className="flex gap-2 shadow-custom-white">
-              <img src={skill.url} alt={`${skill.name} 이미지`} />
+            <div className="flex gap-2 w-[50px] h-[50px] shadow-custom-white">
+              <Image src={skill.url} width={50} height={50} alt={`${skill.name} 이미지`} />
             </div>
             <div className="flex gap-2 text-lg">
               <h2>{skill.name}</h2>

@@ -2,6 +2,7 @@
 import React from "react";
 import { SwiperSlide } from "swiper/react";
 import CustomSwiper from "@/components/CustomSwiper";
+import Image from "next/image";
 
 type Props = {
   skins: {
@@ -20,7 +21,7 @@ const SkinSection = ({ skins }: Props) => {
             {skins.map((skin) => (
               <SwiperSlide key={skin.url}>
                 <div className="relative">
-                  <img src={skin.url} alt={`${skin.name} 이미지`} />
+                  <Image src={skin.url} width={1920} height={1080} alt={`${skin.name} 이미지`} />
 
                   <h1 className="absolute top-4 left-4 text-4xl italic">
                     {skin.name === "default" ? "기본 스킨" : skin.name}
