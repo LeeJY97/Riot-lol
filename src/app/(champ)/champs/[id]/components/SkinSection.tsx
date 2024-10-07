@@ -13,10 +13,10 @@ type Props = {
 
 const SkinSection = ({ skins }: Props) => {
   return (
-    <div className="w-full  max-w-[1200px] min-w-[1200px] mx-auto">
+    <section className="w-full  max-w-[1200px] min-w-[1200px] mx-auto">
       <div className="flex flex-col">
         <h1 className="text-4xl mb-4">스킨 목록</h1>
-        <div>
+        <article>
           <CustomSwiper slidesPerView={1}>
             {skins.map((skin) => (
               <SwiperSlide key={skin.url}>
@@ -30,9 +30,9 @@ const SkinSection = ({ skins }: Props) => {
               </SwiperSlide>
             ))}
           </CustomSwiper>
-        </div>
+        </article>
       </div>
-    </div>
+    </section>
   );
 };
 
