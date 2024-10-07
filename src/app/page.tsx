@@ -36,7 +36,7 @@ export default function Home() {
           <Image src={blog} alt="" width={30} height={30} />
         </div> */}
       </div>
-      <Image src={bg} alt={"메인 배경"} layout="fill"></Image>
+      <Image src={bg} alt={"메인 배경사진"} layout="fill"></Image>
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
     </div>
   );

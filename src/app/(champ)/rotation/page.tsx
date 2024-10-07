@@ -62,13 +62,19 @@ const Rotation = () => {
   return (
     <>
       <div className="fixed top-10 left-0 w-full h-full min-w-[1220px] z-0">
-        <Image src={currentBg} alt={"dd"} layout="fill" className="object-cover blur-sm" priority />
+        <Image
+          src={currentBg}
+          alt={`${currentChampName} 배경 이미지`}
+          layout="fill"
+          className="object-cover blur-sm"
+          priority
+        />
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
       </div>
       <div className="max-w-[1200px] min-w-[990px] pt-10 rounded-xl relative z-50">
         <div className="flex flex-col justify-center items-center h-20 mt-10 mb-4">
           <div className="flex flex-col gap-2 items-center ">
-            <h1 className="text-2xl text-[]">로테이션 목록</h1>
+            <h1 className="text-2xl ">로테이션 목록</h1>
             <h1 className="text-6xl text-[#aa7d30] font-HeirofLight font-bold">
               {currentChampName}
             </h1>
@@ -86,7 +92,7 @@ const Rotation = () => {
                   <input type="hidden" id="defaultImage" value={champ.id} name={champ.name} />
                   <Image
                     src={champ.loadingImage}
-                    alt=""
+                    alt={`${champ.name} 이미지`}
                     width={300}
                     height={300}
                     // className={`object-cover ${currentChampId !== champ.id && "blur-sm"}`}

@@ -14,7 +14,7 @@ const InfoSection = ({ ...info }: Props) => {
       <div className="flex justify-center">
         <div className="w-full min-w-[1200px] max-w-[1920px] opacity-50 ">
           {/*  TODO Image로 변경 */}
-          <img src={info.imageUrl} alt="" className="w-full object-cover" />
+          <img src={info.imageUrl} alt="챔피언 기본 스킨" className="w-full object-cover" />
         </div>
       </div>
       <div className="absolute top-1/3 w-full min-w-[500px] max-w-[900px] p-4">

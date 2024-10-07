@@ -23,7 +23,7 @@ const SelfItem = ({ selfItem }) => {
           src={`https://ddragon.leagueoflegends.com/cdn/14.19.1/img/item/${selfItem.id}.png`}
           width={100}
           height={100}
-          alt={selfItem.name}
+          alt={`${selfItem.name} 이미지`}
         />
       </div>
     </div>

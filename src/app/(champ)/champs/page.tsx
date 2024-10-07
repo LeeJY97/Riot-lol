@@ -16,7 +16,7 @@ const Champs = async () => {
   return (
     <>
       <div className="fixed top-10 left-0 w-full h-full min-w-[1220px]">
-        <Image src={bg} alt={"dd"} layout="fill"></Image>
+        <Image src={bg} alt={"목록 페이지 배경 사진"} layout="fill"></Image>
       </div>
       <div className="pt-[56px] max-w-[1200px] min-w-[990px]">
         <ChampsController champTable={champTable} />

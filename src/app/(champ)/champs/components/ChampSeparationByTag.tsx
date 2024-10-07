@@ -35,7 +35,13 @@ const ChampSeparationByTag = ({ champsSeparationByTag }: Props) => {
             className="mb-10 pb-10 border-b-2 pt-10 pl-4 pr-4 rounded-xl border-[#9e9e9e]">
             <div className="flex flex-col justify-center items-center h-20 mb-4">
               <div className="flex gap-2">
-                <Image src={CHAMP_TAGS[tag]} alt="" width={30} height={30} priority />
+                <Image
+                  src={CHAMP_TAGS[tag]}
+                  alt={`${champTagMapKr[tag]} 아이콘`}
+                  width={30}
+                  height={30}
+                  priority
+                />
                 {/* <h1 className="text-4xl text-[#aa7d30] font-HeirofLight">{champTagMapKr[tag]}</h1> */}
                 <h1 className="text-4xl text-subColor font-HeirofLight font-bold">
                   {champTagMapKr[tag]}
