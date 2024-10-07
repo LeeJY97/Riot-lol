@@ -30,18 +30,13 @@ const ChampDetail = async ({ params }: Props) => {
   const { info, skillsInfo, skinsInfo } = convertDetailPageInfos(champ);
 
   return (
-    <div className="flex flex-col max-w-[1920px] gap-10 mx-auto">
-      <div className="w-full">
-        <InfoSection {...info} />
-      </div>
-      <div className="max-w-[1200px] min-w-[1200px] mx-auto">
-        {" "}
-        {/** 이걸 Section에 넣을 수도 */}
-        <SkillSection skills={skillsInfo} />
-      </div>
-      <div className="max-w-[1200px] mx-auto">
-        <SkinSection skins={skinsInfo} />
-      </div>
+    <div className="flex flex-col w-[full] max-w-[1440px] gap-10 mx-auto">
+      {/* 페이지 전체에 배경 넣기 */}
+      <InfoSection {...info} />
+      <SkillSection skills={skillsInfo} />
+      {/* <div className="max-w-[1200px] mx-auto"> */}
+      <SkinSection skins={skinsInfo} />
+      {/* </div> */}
     </div>
   );
 };

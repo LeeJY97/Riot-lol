@@ -7,7 +7,8 @@ type Props = {
 
 const SkillSection = ({ skills }: Props) => {
   return (
-    <div className="flex justify-between w-full">
+    // max-w-[1200px] min-w-[1200px] mx-auto
+    <div className="flex justify-between w-full max-w-[1200px] min-w-[1200px] mx-auto">
       {skills.map((skill) => (
         <div key={skill.id} className="w-[18%] border-[#7F602A] border-2 p-4">
           <div className="flex flex-col gap-4 h-[100%]">
