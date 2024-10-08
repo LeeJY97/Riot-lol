@@ -29,7 +29,6 @@ export default async function Home() {
   await queryClient.prefetchQuery({
     queryKey: queryKey.rotation.rotationKeys,
     queryFn: async () => {
-      console.log('"asdfasdfasdf"', "asdfasdfasdf");
       const rotationRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/rotation`);
       const rotationKeys = await rotationRes.json();
       return rotationKeys;
