@@ -8,6 +8,9 @@ import { ChampTable } from "@/types/Champs";
 import React, { useState } from "react";
 import ChampSeparationByTag from "./ChampSeparationByTag";
 import ChampGrid from "../../components/ChampGrid";
+import ChampsAll from "./ChampsAll";
+import useMediaQuery from "@/components/ui/useMediaQuery";
+import ChampsAllMobile from "./mobile/ChampsAllMobile";
 
 type Props = {
   champTable: ChampTable;
@@ -18,6 +21,12 @@ const ChampsController = ({ champTable }: Props) => {
   const champsExtendCustomImage = getChampsExtendCustomImage(champs);
   const champsSeparationByTag = separationChampsByTag(champsExtendCustomImage);
 
+  const { isMobile, isTablet, isDesktop } = useMediaQuery();
+
+  console.log("isMobile", isMobile);
+  console.log("isTablet", isTablet);
+  console.log("isDesktop", isDesktop);
+
   const [viewOption, setViewOption] = useState("all");
 
   return (
@@ -25,7 +34,7 @@ const ChampsController = ({ champTable }: Props) => {
     <div className="flex flex-col gap-2 justify-end p-4 relative">
       <div className="flex flex-col gap-10 w-[15%] pl-4">
         <select
-          className="h-6 w-full text-black"
+          className="h-6 w-[150px] text-black"
           value={viewOption}
           onChange={(e) => setViewOption(e.target.value)}>
           <option value="all">전체</option>
@@ -35,19 +44,13 @@ const ChampsController = ({ champTable }: Props) => {
       {viewOption === "tag" ? (
         <ChampSeparationByTag champsSeparationByTag={champsSeparationByTag}></ChampSeparationByTag>
       ) : (
-        <div className="flex flex-col">
-          {/* <div className="flex gap-4 mb-4 text-xl"> */}
-          {/* <div className="mb-10 pb-10 border-b-2 pt-10 pl-4 pr-4 bg-[rgba(255,255,255,.2)] rounded-xl"> */}
-          <div className="mb-10 pb-10 border-b-2 pt-10 pl-4 pr-4 rounded-xl">
-            <div className="flex flex-col justify-center items-center h-20 mb-4">
-              {/* <h1 className="text-6xl text-[#aa7d30]">전체 챔피언 목록</h1> */}
-              <h1 className="text-4xl font-HeirofLight font-bold text-subColor mb-8 ">
-                전체 챔피언 목록
-              </h1>
-            </div>
-            <ChampGrid champs={champsExtendCustomImage} />
-          </div>
-        </div>
+        <>
+          {!isMobile ? (
+            <ChampsAll champs={champsExtendCustomImage} />
+          ) : (
+            <ChampsAllMobile champs={champsExtendCustomImage}></ChampsAllMobile>
+          )}
+        </>
       )}
     </div>
   );

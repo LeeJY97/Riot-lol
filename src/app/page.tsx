@@ -36,6 +36,7 @@ export default async function Home() {
   });
 
   return (
+    // Hydration 적용 안되는 것 같음 ?
     <HydrationBoundary state={dehydrate(queryClient)}>
       <main className="fixed top-0 left-0 w-full h-svh min-w-[1220px] min-h-[685px]">
         <section className="fixed bottom-2 flex justify-end items-center gap-10 w-full h-[120px] z-50 text-4xl text-subColor pr-10">
