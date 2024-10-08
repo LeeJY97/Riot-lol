@@ -1,5 +1,5 @@
 import React from "react";
-import ChampGrid from "@/app/(champ)/components/ChampGrid";
+import ChampGrid from "@/app/(champ)/champs/components/desktop/ChampGrid";
 import Fighter from "@/public/assets/images/champTags/Fighter.webp";
 import Tank from "@/public/assets/images/champTags/Tank.webp";
 import Assassin from "@/public/assets/images/champTags/Assassin.webp";

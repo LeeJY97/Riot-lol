@@ -1,5 +1,5 @@
 import React from "react";
-import ChampGrid from "../../../components/ChampGrid";
+import ChampGrid from "./ChampGrid";
 import { Champ, ChampCustomImage } from "@/types/Champs";
 
 type Props = {

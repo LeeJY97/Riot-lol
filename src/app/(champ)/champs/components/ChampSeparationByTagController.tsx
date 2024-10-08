@@ -13,7 +13,7 @@ const ChampSeparationByTagController = ({ champsSeparationByTag }: Props) => {
 
   return (
     <>
-      {!isMobile && (
+      {(isDesktop || isTablet) && (
         <ChampSeparationByTagDesktop
           champsSeparationByTag={champsSeparationByTag}></ChampSeparationByTagDesktop>
       )}
