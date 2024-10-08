@@ -11,6 +11,7 @@ import ChampGrid from "../../components/ChampGrid";
 import ChampsAll from "./ChampsAll";
 import useMediaQuery from "@/components/ui/useMediaQuery";
 import ChampsAllMobile from "./mobile/ChampsAllMobile";
+import ChampSeparationByTagMobile from "./mobile/ChampSeparationByTagMobile";
 
 type Props = {
   champTable: ChampTable;
@@ -42,7 +43,14 @@ const ChampsController = ({ champTable }: Props) => {
         </select>
       </div>
       {viewOption === "tag" ? (
-        <ChampSeparationByTag champsSeparationByTag={champsSeparationByTag}></ChampSeparationByTag>
+        <>
+          {!isMobile ? (
+            <ChampSeparationByTag
+              champsSeparationByTag={champsSeparationByTag}></ChampSeparationByTag>
+          ) : (
+            <ChampSeparationByTagMobile champsSeparationByTag={champsSeparationByTag} />
+          )}
+        </>
       ) : (
         <>
           {!isMobile ? (
