@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 // import rift from "@/public/assets/images/bg/rift.webp";
 import bg from "@/public/assets/images/bg/jhin2.jpg";
-import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
+import { dehydrate, HydrationBoundary, QueryClient, useQueryClient } from "@tanstack/react-query";
 import queryKey from "@/Queries/queryKey";
 import { getChamps } from "@/server-actions/champAction";
 
@@ -16,10 +16,12 @@ export default async function Home() {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: 1 * 1000,
+        staleTime: 10 * 1000,
       },
     },
   });
+
+  // const queryClient = useQueryClient();
 
   await queryClient.prefetchQuery({
     queryKey: queryKey.champ.champs,

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 const initialScreenMode = {
   isMobile: false,
@@ -9,7 +9,7 @@ const initialScreenMode = {
 const useMediaQuery = () => {
   const [screenMode, setScreenSize] = useState(initialScreenMode);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
 

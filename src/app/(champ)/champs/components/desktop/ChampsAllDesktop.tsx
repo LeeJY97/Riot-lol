@@ -8,7 +8,7 @@ type Props = {
 
 const ChampsAllDesktop = ({ champs }: Props) => {
   return (
-    <div className="pt-[56px] max-w-[1200px] min-w-[990px]">
+    <div className="hidden md:flex pt-[56px] max-w-[1200px] min-w-[990px]">
       <div className="flex flex-col">
         <div className="mb-10 pb-10 border-b-2 pt-10 pl-4 pr-4 rounded-xl">
           <div className="flex flex-col justify-center items-center h-20 mb-4">

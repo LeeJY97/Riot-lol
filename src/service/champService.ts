@@ -56,7 +56,7 @@ const getChampsExtendCustomImage = (champs: Champ[]): (Champ & ChampCustomImage)
 
 const getChampsWithRotations = (rotationKeys: Rotation, champTable: ChampTable): Champ[] => {
   const rotationChampList = convertChampsTableToArray(champTable).filter((champ) =>
-    rotationKeys.freeChampionIds.includes(+champ.key),
+    rotationKeys?.freeChampionIds.includes(+champ.key),
   );
 
   return rotationChampList;

@@ -6,7 +6,7 @@ type Props = {
 };
 const ChampsAllMobile = ({ champs }: Props) => {
   return (
-    <div className="flex flex-col justify-center items-center w-full max-w-[768px]">
+    <div className="md:hidden flex flex-col justify-center items-center w-full max-w-[768px]">
       <div className="flex items-center">
         <h1 className="text-xl font-HeirofLight font-bold text-subColor">전체 챔피언 목록</h1>
       </div>

@@ -25,15 +25,24 @@ const Rotation = () => {
       const rotationKeys = await rotationRes.json();
       return rotationKeys;
     },
-    staleTime: 0,
+    // initialData: {
+    //   freeChampionIds: [],
+    //   freeChampionIdsForNewPlayers: [],
+    //   maxNewPlayerLevel: 0,
+    // },
+    // staleTime: 0,
   });
 
   const { data: champTable, isPending: isChampTablePending } = useQuery<ChampTable>({
     queryKey: queryKey.champ.champs,
     queryFn: () => getChamps(),
-    initialData: {},
-    staleTime: 0,
+    // initialData: {},
+    // staleTime: 0,
   });
+
+  // if (isRotationKeysPending) {
+  //   return <></>;
+  // }
 
   const rotationChamps = getChampsWithRotations(rotationKeys, champTable);
   const champsExtendCustomImage = getChampsExtendCustomImage(rotationChamps);

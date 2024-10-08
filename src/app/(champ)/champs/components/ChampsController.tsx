@@ -7,8 +7,10 @@ import {
 import { ChampTable } from "@/types/Champs";
 import React, { useState } from "react";
 import ChampSeparationByTagController from "./ChampSeparationByTagController";
+import dynamic from "next/dynamic";
 import ChampsAllController from "./ChampsAllController";
 
+// const ChampsAllController = dynamic(() => import("./ChampsAllController"), { ssr: false });
 type Props = {
   champTable: ChampTable;
 };
