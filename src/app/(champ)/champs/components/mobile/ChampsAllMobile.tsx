@@ -3,6 +3,7 @@ import { Champ, ChampCustomImage } from "@/types/Champs";
 import ChampGrid from "../../../components/ChampGrid";
 import Link from "next/link";
 import Image from "next/image";
+import ChampsGridMobile from "./ChampsGridMobile";
 type Props = {
   champs: (Champ & ChampCustomImage)[];
 };
@@ -12,7 +13,9 @@ const ChampsAllMobile = ({ champs }: Props) => {
       <div className="flex items-center">
         <h1 className="text-xl font-HeirofLight font-bold text-subColor">전체 챔피언 목록</h1>
       </div>
-      <div className="flex flex-col justify-center items-center gap-4 w-full p-4">
+      {/* <div className="flex flex-col justify-center items-center gap-4 w-full p-4"> */}
+      <ChampsGridMobile champs={champs} />
+      {/* <div className="grid grid-cols-2 justify-center items-center gap-4 w-full pl-2 pr-2">
         {champs.map((champ) => (
           <Link key={champ.id} href={`/champs/${champ.id}`} className="w-full">
             <div className="flex flex-col justify-center items-center w-full relative">
@@ -27,7 +30,7 @@ const ChampsAllMobile = ({ champs }: Props) => {
             </div>
           </Link>
         ))}
-      </div>
+      </div> */}
     </div>
     // <div className="flex flex-col items-center w-[80%]">
     //   <div className="mb-10 pb-10 border-b-2 pt-10 pl-4 pr-4 rounded-xl">

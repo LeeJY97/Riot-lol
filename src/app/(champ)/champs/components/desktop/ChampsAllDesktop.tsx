@@ -1,12 +1,12 @@
 import React from "react";
-import ChampGrid from "../../components/ChampGrid";
+import ChampGrid from "../../../components/ChampGrid";
 import { Champ, ChampCustomImage } from "@/types/Champs";
 
 type Props = {
   champs: (Champ & ChampCustomImage)[];
 };
 
-const ChampsAll = ({ champs }: Props) => {
+const ChampsAllDesktop = ({ champs }: Props) => {
   return (
     <div className="pt-[56px] max-w-[1200px] min-w-[990px]">
       <div className="flex flex-col">
@@ -23,4 +23,4 @@ const ChampsAll = ({ champs }: Props) => {
   );
 };
 
-export default ChampsAll;
+export default ChampsAllDesktop;

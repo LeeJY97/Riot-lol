@@ -1,6 +1,5 @@
-import { CHAMP_TAGS, ChampsSeparationByTag, champTagMapKr } from "@/types/Champs";
 import React from "react";
-import ChampGrid from "../../components/ChampGrid";
+import ChampGrid from "@/app/(champ)/components/ChampGrid";
 import Fighter from "@/public/assets/images/champTags/Fighter.webp";
 import Tank from "@/public/assets/images/champTags/Tank.webp";
 import Assassin from "@/public/assets/images/champTags/Assassin.webp";
@@ -8,6 +7,7 @@ import Mage from "@/public/assets/images/champTags/Mage.webp";
 import Marksman from "@/public/assets/images/champTags/Marksman.webp";
 import Support from "@/public/assets/images/champTags/Support.webp";
 import Image from "next/image";
+import { ChampsSeparationByTag, champTagMapKr } from "@/types/Champs";
 
 type Props = {
   champsSeparationByTag: ChampsSeparationByTag;
@@ -22,7 +22,7 @@ const tagIconMap = {
   Support: Support,
 };
 
-const ChampSeparationByTag = ({ champsSeparationByTag }: Props) => {
+const ChampSeparationByTagDesktop = ({ champsSeparationByTag }: Props) => {
   return (
     <div className="pt-[56px] max-w-[1200px] min-w-[990px]">
       <div className="w-full">
@@ -61,4 +61,4 @@ const ChampSeparationByTag = ({ champsSeparationByTag }: Props) => {
   );
 };
 
-export default ChampSeparationByTag;
+export default ChampSeparationByTagDesktop;

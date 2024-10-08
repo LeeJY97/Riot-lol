@@ -7,8 +7,8 @@ import Mage from "@/public/assets/images/champTags/Mage.webp";
 import Marksman from "@/public/assets/images/champTags/Marksman.webp";
 import Support from "@/public/assets/images/champTags/Support.webp";
 import Image from "next/image";
-import { Champ, ChampCustomImage, ChampsSeparationByTag, champTagMapKr } from "@/types/Champs";
-import Link from "next/link";
+import { ChampsSeparationByTag, champTagMapKr } from "@/types/Champs";
+import ChampsGridMobile from "./ChampsGridMobile";
 
 type Props = {
   champsSeparationByTag: ChampsSeparationByTag;
@@ -37,29 +37,13 @@ const ChampSeparationByTagMobile = ({ champsSeparationByTag }: Props) => {
                 height={30}
                 priority
               />
-              {/* <h1 className="text-4xl text-[#aa7d30] font-HeirofLight">{champTagMapKr[tag]}</h1> */}
               <h1 className="text-xl text-subColor font-HeirofLight font-bold">
                 {champTagMapKr[tag]}
               </h1>
             </div>
             <h1 className="text-sm text-[#c9c9c9]">{champsSeparationByTag[tag].length} 명</h1>
           </div>
-          <div className="flex flex-col justify-center items-center gap-4 w-full pl-2 pr-2">
-            {champsSeparationByTag[tag].map((champ: Champ & ChampCustomImage) => (
-              <Link key={champ.id} href={`/champs/${champ.id}`} className="w-full">
-                <div className="flex flex-col justify-center items-center w-full relative">
-                  <div className="w-full h-full">
-                    <Image src={champ.defaultImage} alt="" width={1920} height={1080} />
-                  </div>
-                  <div className="absolute top-2 right-2 h-[30px] flex items-center">
-                    <div className="bg-black opacity-75 pl-2 pr-2 rounded-lg">
-                      <span className="text-sm">{champ.name}</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <ChampsGridMobile champs={champsSeparationByTag[tag]} />
         </ul>
       ))}
     </ul>

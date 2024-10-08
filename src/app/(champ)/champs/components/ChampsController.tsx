@@ -6,12 +6,9 @@ import {
 } from "@/service/champService";
 import { ChampTable } from "@/types/Champs";
 import React, { useState } from "react";
-import ChampSeparationByTag from "./ChampSeparationByTag";
-import ChampGrid from "../../components/ChampGrid";
-import ChampsAll from "./ChampsAll";
 import useMediaQuery from "@/components/ui/useMediaQuery";
-import ChampsAllMobile from "./mobile/ChampsAllMobile";
-import ChampSeparationByTagMobile from "./mobile/ChampSeparationByTagMobile";
+import ChampSeparationByTagController from "./ChampSeparationByTagController";
+import ChampsAllController from "./ChampsAllController";
 
 type Props = {
   champTable: ChampTable;
@@ -22,16 +19,9 @@ const ChampsController = ({ champTable }: Props) => {
   const champsExtendCustomImage = getChampsExtendCustomImage(champs);
   const champsSeparationByTag = separationChampsByTag(champsExtendCustomImage);
 
-  const { isMobile, isTablet, isDesktop } = useMediaQuery();
-
-  console.log("isMobile", isMobile);
-  console.log("isTablet", isTablet);
-  console.log("isDesktop", isDesktop);
-
   const [viewOption, setViewOption] = useState("all");
 
   return (
-    // <div className="flex flex-col gap-2 justify-end max-w-[1200px] min-w-[990px] p-4 relative">
     <div className="flex flex-col gap-2 justify-end p-4 relative">
       <div className="flex flex-col gap-10 w-[15%] pl-4">
         <select
@@ -43,22 +33,9 @@ const ChampsController = ({ champTable }: Props) => {
         </select>
       </div>
       {viewOption === "tag" ? (
-        <>
-          {!isMobile ? (
-            <ChampSeparationByTag
-              champsSeparationByTag={champsSeparationByTag}></ChampSeparationByTag>
-          ) : (
-            <ChampSeparationByTagMobile champsSeparationByTag={champsSeparationByTag} />
-          )}
-        </>
+        <ChampSeparationByTagController champsSeparationByTag={champsSeparationByTag} />
       ) : (
-        <>
-          {!isMobile ? (
-            <ChampsAll champs={champsExtendCustomImage} />
-          ) : (
-            <ChampsAllMobile champs={champsExtendCustomImage}></ChampsAllMobile>
-          )}
-        </>
+        <ChampsAllController champs={champsExtendCustomImage} />
       )}
     </div>
   );
