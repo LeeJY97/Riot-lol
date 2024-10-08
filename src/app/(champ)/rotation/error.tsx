@@ -25,23 +25,9 @@ export default function Error({
           </div>
           <Link href="/">메인으로 가기</Link>
         </div>
-        {/* <div className="flex justify-center items-center bg-black bg-opacity-60 p-2 w-[200px] rounded-sm">
-          <a href="https://reactjy2.tistory.com" target="_blank">
-            블로그
-          </a>
-        </div>
-        <div className="flex justify-center items-center bg-black bg-opacity-80 p-2 w-[200px] rounded-sm">
-          <a href="https://www.github.com/LeeJY97" target="_blank">
-            깃허브
-          </a>
-        </div> */}
       </div>
       <Image src={bg} alt={"메인 배경사진"} layout="fill"></Image>
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
     </div>
-    // <div className="flex flex-col w-full h-svh justify-center items-center">
-    //   <h2>최신 데이터를 불러올 수 없습니다. (키 만료)</h2>
-    //   <Link href="/">메인으로 가기</Link>
-    // </div>
   );
 }

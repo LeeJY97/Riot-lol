@@ -6,16 +6,12 @@ import { getChampsExtendCustomImage, getChampsWithRotations } from "@/service/ch
 import { ChampTable } from "@/types/Champs";
 import type Rotation from "@/types/Rotation";
 import { useQuery } from "@tanstack/react-query";
-// import Image, { StaticImageData } from "next/image";
-// import champBg from "@/public/assets/images/bg/jhin.jpg";
 import CustomSwiper from "@/components/CustomSwiper";
 import { SwiperClass, SwiperSlide } from "swiper/react";
 import { useState } from "react";
-import { CHAMP_DEFAULT_IMAGE_BASE_URL } from "@/constant/urls";
 import { getDefaultImage } from "@/utils/champion";
 
 const Rotation = () => {
-  // const [currentBg, setCurrentBg] = useState<StaticImageData | string>(champBg);
   const [currentBg, setCurrentBg] = useState<string>("@/public/assets/images/bg/jhin.jpg");
   const [currentChampId, setCurrentChampId] = useState<string>();
   const [currentChampName, setCurrentChampName] = useState<string>();
@@ -39,10 +35,6 @@ const Rotation = () => {
     staleTime: 0,
   });
 
-  // if (isRotationKeysPending || isChampTablePending) {
-  //   return <></>;
-  // }
-
   const rotationChamps = getChampsWithRotations(rotationKeys, champTable);
   const champsExtendCustomImage = getChampsExtendCustomImage(rotationChamps);
 
@@ -63,7 +55,6 @@ const Rotation = () => {
   return (
     <>
       <div className="fixed top-10 left-0 w-full h-full min-w-[1220px] z-0">
-        {/* 기본 img 태그 */}
         <div className="relative w-full h-full">
           <img
             src={currentBg}
@@ -71,14 +62,6 @@ const Rotation = () => {
             className="absolute top-0 left-0 w-full h-full object-cover"
           />
         </div>
-        {/* Image 태그 */}
-        {/* <Image
-          src={currentBg}
-          alt={`${currentChampName} 배경 이미지`}
-          layout="fill"
-          className="object-cover blur-sm"
-          priority
-        /> */}
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
       </div>
       <div className="max-w-[1200px] min-w-[990px] pt-10 rounded-xl relative z-50">
@@ -101,13 +84,6 @@ const Rotation = () => {
                 <div className={`relative `}>
                   <input type="hidden" id="defaultImage" value={champ.id} name={champ.name} />
                   <img src={champ.loadingImage} alt={`${champ.name} 이미지`} fetchPriority="high" />
-                  {/* <Image
-                    src={champ.loadingImage}
-                    alt={`${champ.name} 이미지`}
-                    width={300}
-                    height={300}
-                    className={`object-cover`}
-                  /> */}
                   {currentChampId !== champ.id && (
                     <>
                       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-70 z-10"></div>

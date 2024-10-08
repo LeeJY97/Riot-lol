@@ -1,5 +1,5 @@
-import { CHAMP_TAGS, ChampsSeparationByTag, champTagMapKr } from "@/types/Champs";
-import React, { useEffect, useState } from "react";
+import { ChampsSeparationByTag } from "@/types/Champs";
+import React from "react";
 import useMediaQuery from "@/components/ui/useMediaQuery";
 import ChampSeparationByTagDesktop from "./desktop/ChampSeparationByTagDesktop";
 import ChampSeparationByTagMobile from "./mobile/ChampSeparationByTagMobile";

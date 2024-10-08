@@ -6,7 +6,6 @@ import {
 } from "@/service/champService";
 import { ChampTable } from "@/types/Champs";
 import React, { useState } from "react";
-import useMediaQuery from "@/components/ui/useMediaQuery";
 import ChampSeparationByTagController from "./ChampSeparationByTagController";
 import ChampsAllController from "./ChampsAllController";
 
