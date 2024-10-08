@@ -9,14 +9,12 @@ type Props = {
 };
 
 const ChampsAllController = ({ champs }: Props) => {
-  const { isMobile, isTablet, isDesktop } = useMediaQuery();
-
-  console.log("isDesktop", isDesktop);
+  const { isMobile } = useMediaQuery();
 
   return (
     <>
-      {(isDesktop || isTablet) && <ChampsAllDesktop champs={champs} />}
       {isMobile && <ChampsAllMobile champs={champs} />}
+      {!isMobile && <ChampsAllDesktop champs={champs} />}
     </>
   );
 };

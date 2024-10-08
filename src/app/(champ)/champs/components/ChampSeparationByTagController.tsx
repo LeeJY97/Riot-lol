@@ -1,5 +1,5 @@
 import { CHAMP_TAGS, ChampsSeparationByTag, champTagMapKr } from "@/types/Champs";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useMediaQuery from "@/components/ui/useMediaQuery";
 import ChampSeparationByTagDesktop from "./desktop/ChampSeparationByTagDesktop";
 import ChampSeparationByTagMobile from "./mobile/ChampSeparationByTagMobile";
@@ -9,15 +9,15 @@ type Props = {
 };
 
 const ChampSeparationByTagController = ({ champsSeparationByTag }: Props) => {
-  const { isMobile, isTablet, isDesktop } = useMediaQuery();
+  const { isMobile } = useMediaQuery();
 
   return (
     <>
-      {(isDesktop || isTablet) && (
+      {isMobile && <ChampSeparationByTagMobile champsSeparationByTag={champsSeparationByTag} />}
+      {!isMobile && (
         <ChampSeparationByTagDesktop
           champsSeparationByTag={champsSeparationByTag}></ChampSeparationByTagDesktop>
       )}
-      {isMobile && <ChampSeparationByTagMobile champsSeparationByTag={champsSeparationByTag} />}
     </>
   );
 };
